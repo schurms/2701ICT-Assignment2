@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="onNewProject()">
+        <ion-icon name="add-circle"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>
+      Projects List
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list reorder="true" (ionItemReorder)="reorderItems($event)">
+      <button
+        ion-item
+        *ngFor="let project of projects; let i = index"
+        (click)="onLoadProject(project, i)">
+       <h2>{{ project.title }}</h2>
+        <ion-note>{{ project.manager }}</ion-note>
+      </button>
+  </ion-list>
+</ion-content>

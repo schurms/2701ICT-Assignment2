@@ -1,0 +1,36 @@
+<ion-content class="background">
+  <form #signupForm="ngForm" (ngSubmit)="onSignup(signupForm)">
+    <ion-card>
+      <ion-card-header>
+        Project Manager
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list no-line>
+          <ion-item>
+            <ion-input
+              type="text"
+              name="username"
+              placeholder="Username"
+              ngModel
+              required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input
+              type="password"
+              name="password"
+              placeholder="Password"
+              ngModel
+              required></ion-input>
+          </ion-item>
+          <a><b>    </b></a>
+          <button
+            ion-button
+            type="submit"
+            color="light"
+            block
+            [disabled]="!signupForm.valid">Sign up</button>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  </form>
+</ion-content>

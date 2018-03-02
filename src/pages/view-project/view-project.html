@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{ project.title }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col text-center>
+        <h2>{{ project.title }}</h2>
+        <div class="subtitle">{{ project.manager }}</div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col text-center>
+        <p>{{ project.description }}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col text-center>
+        <p>Start Date {{ project.startDate }}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col text-center>
+        <p>End Date {{ project.endDate }}</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <button
+    ion-button
+    color="secondary"
+    block
+    (click)="onEditProject()">Edit Project</button>
+  <button
+    ion-button
+    color="danger"
+    block
+    (click)="onDeleteProject()">Delete Project</button>
+</ion-content>

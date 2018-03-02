@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Add New Project</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <ion-list>
+      <ion-item>
+        <ion-label floating>Title</ion-label>
+        <ion-input
+          type="text"
+          name="title"
+          maxlength="30"
+          required
+          ngModel></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Manager</ion-label>
+        <ion-input
+          type="text"
+          name="manager"
+          maxlength="30"
+          required
+          ngModel></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Description</ion-label>
+        <ion-textarea
+          autosize
+          name="description"
+          maxlength="200"
+          required
+          ngModel></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Start Date</ion-label>
+        <ion-datetime
+          displayFormat="DD/MMM/YYYY"
+          min="2017"
+          max="2020-01-01"
+          name="startDate"
+          required
+          ngModel></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>End Date</ion-label>
+        <ion-datetime
+          displayFormat="DD/MMM/YYYY"
+          min="2017"
+          max="2020-01-01"
+          name="endDate"
+          required
+          ngModel></ion-datetime>
+      </ion-item>
+    </ion-list>
+    <button
+      ion-button
+      type="submit"
+      color="secondary"
+      block
+      [disabled]="!f.valid">Save New Project</button>
+  </form>
+</ion-content>

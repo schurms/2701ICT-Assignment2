@@ -1,0 +1,113 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Edit Project</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <ion-list>
+      <ion-item>
+        <ion-label floating>Title</ion-label>
+        <ion-input
+          type="text"
+          name="title"
+          maxlength="30"
+          required
+          [ngModel]="project.title"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Manager</ion-label>
+        <ion-input
+          type="text"
+          name="manager"
+          maxlength="30"
+          required
+          [ngModel]="project.manager"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Description</ion-label>
+        <ion-textarea
+          autosize
+          name="description"
+          maxlength="200"
+          required
+          [ngModel]="project.description"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Start Date</ion-label>
+        <ion-datetime
+          displayFormat="DD/MMM/YYYY"
+          min="2017"
+          max="2020-01-01"
+          name="startDate"
+          required
+          [ngModel]="project.startDate"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>End Date</ion-label>
+        <ion-datetime
+          displayFormat="DD/MMM/YYYY"
+          min="2017"
+          max="2020-01-01"
+          name="endDate"
+          required
+          [ngModel]="project.endDate"></ion-datetime>
+      </ion-item>
+    </ion-list>
+    <button
+      ion-button
+      type="submit"
+      color="secondary"
+      block
+      [disabled]="!f.valid">Save Updated Project Details</button>
+  </form>
+</ion-content>
+
+
+<!-- <ion-content padding>
+  <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+    <ion-list>
+      <ion-item>
+        <ion-label fixed>Title</ion-label>
+        <ion-input
+          type="text"
+          formControlName="title"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>Manager</ion-label>
+        <ion-input
+          type="text"
+          formControlName="manager"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>Description</ion-label>
+        <ion-textarea
+          autosize
+          formControlName="description"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>Start Date</ion-label>
+        <ion-datetime
+          displayFormat="DD/MMM/YYYY"
+          min="2017"
+          max="2020-01-01"
+          formControlName="startDate"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>End Date</ion-label>
+        <ion-datetime
+          displayFormat="DD/MMM/YYYY"
+          min="2017"
+          max="2020-01-01"
+          formControlName="endDate"></ion-datetime>
+      </ion-item>
+    </ion-list>
+    <button
+      type="submit"
+      ion-button
+      color="secondary"
+      block
+      [disabled]="!projectForm.valid">Save Edited Project</button>
+  </form>
+</ion-content> -->
