@@ -1,8 +1,9 @@
 <ion-content class="background">
   <form #loginForm="ngForm" (ngSubmit)="onLogin(loginForm)">
     <ion-card>
+      <img src="assets/imgs/logo1.png" class="logo"/>
       <ion-card-header>
-        Project Manager
+        Project Tracker
       </ion-card-header>
       <ion-card-content>
         <ion-list no-line>
@@ -22,7 +23,6 @@
               ngModel
               required></ion-input>
           </ion-item>
-          <a><b>    </b></a>
           <button
             ion-button
             type="submit"

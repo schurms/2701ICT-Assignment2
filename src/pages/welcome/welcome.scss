@@ -17,7 +17,7 @@ page-welcome {
     border-radius: 5px;
   }
 
-  h1 {
+  h1, h3 {
     color: #fff!important;
   }
 
@@ -28,13 +28,6 @@ page-welcome {
 
   .list > .item-block:first-child {
     border: medium none;
-  }
-
-  .logo {
-    width: 100px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
   }
 
   .button {

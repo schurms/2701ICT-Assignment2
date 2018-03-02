@@ -22,7 +22,12 @@ $app-direction: ltr;
 // To view all the possible Ionic variables, see:
 // http://ionicframework.com/docs/theming/overriding-ionic-variables/
 
-
+.logo {
+  width: 100px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 
 // Named Color Variables
