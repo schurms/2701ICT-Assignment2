@@ -31,6 +31,7 @@ export class EditProjectPage implements OnInit {
       form.value.description,
       form.value.startDate,
       form.value.endDate);
+    console.log(form.value.endDate);
 
     form.reset();
     this.navCtrl.popToRoot();

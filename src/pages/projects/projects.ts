@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { NavController, reorderArray} from 'ionic-angular';
+import { NavController, reorderArray } from 'ionic-angular';
 
 import { AddProjectPage } from '../add-project/add-project'
 import { ViewProjectPage} from '../view-project/view-project';
 
 import { ProjectService } from '../../services/project.service';
 import { Project } from '../../models/project.model';
+import {EditProjectPage} from '../edit-project/edit-project';
 
 @Component({
   selector: 'page-projects',
@@ -14,6 +15,8 @@ import { Project } from '../../models/project.model';
 export class ProjectsPage {
 
   projects: Project[];
+  project: Project;
+  index: number;
 
   constructor(public navCtrl: NavController,
               private projectService: ProjectService) {
@@ -33,6 +36,14 @@ export class ProjectsPage {
 
   reorderItems(indexes) {
     this.projects = reorderArray(this.projects, indexes);
+  }
+
+  onEditProject(project: Project, index: number) {
+    this.navCtrl.push(EditProjectPage, {project: project, index: index});
+  }
+
+  onDeleteProject(index: number) {
+    this.projectService.deleteProject(index);
   }
 
 }

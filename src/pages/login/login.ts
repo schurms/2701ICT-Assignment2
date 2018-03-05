@@ -19,8 +19,8 @@ export class LoginPage {
 
   onLogin(form: NgForm) {
     // Load some dummy data
-    this.projectService.createProject("Project 1","Manager 1","This project is about ABC.",new Date(),new Date());
-    this.projectService.createProject("Project 2","Manager 2","This project is about ABC.",new Date(),new Date());
+    this.projectService.createProject("Project 1","Manager 1","This project is about ABC.", new Date('2018-01-01'),new Date('2018-06-01'));
+    this.projectService.createProject("Project 2","Manager 2","This project is about ABC.",new Date('2017-05-11'),new Date('2018-07-02'));
 
     this.username = form.value.username;
     this.password = form.value.password;

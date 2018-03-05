@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content padding>
-  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+  <form #projectForm="ngForm" (ngSubmit)="onSubmit(projectForm)">
     <ion-list>
       <ion-item>
         <ion-label floating>Title</ion-label>
@@ -60,6 +60,6 @@
       type="submit"
       color="secondary"
       block
-      [disabled]="!f.valid">Save New Project</button>
+      [disabled]="!projectForm.valid">Save New Project</button>
   </form>
 </ion-content>

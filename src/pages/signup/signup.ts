@@ -19,8 +19,11 @@ export class SignupPage {
 
   onSignup(form: NgForm) {
     // Load some dummy data
-    this.projectService.createProject("Project 1","Manager 1","This project is about ABC.",new Date(),new Date());
-    this.projectService.createProject("Project 2","Manager 2","This project is about ABC.",new Date(),new Date());
+    var newStartDate = new Date('2018-01-01').toISOString().substring(0,10);
+    var newEndDate = new Date('2018-01-01').toISOString().substring(0,10);
+
+    this.projectService.createProject("Project 1", "Manager 1", "This project is about ABC.", newStartDate, newEndDate);
+    this.projectService.createProject("Project 2", "Manager 2", "This project is about ABC.", newStartDate, newEndDate);
 
     this.username = form.value.username;
     this.password = form.value.password;

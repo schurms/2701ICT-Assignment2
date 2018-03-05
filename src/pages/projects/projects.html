@@ -18,12 +18,23 @@
 
 <ion-content padding>
   <ion-list reorder="true" (ionItemReorder)="reorderItems($event)">
-      <button
-        ion-item
-        *ngFor="let project of projects; let i = index"
-        (click)="onLoadProject(project, i)">
-       <h2>{{ project.title }}</h2>
-        <ion-note>{{ project.manager }}</ion-note>
+    <ion-item-sliding *ngFor="let project of projects; let i = index" (click)="onLoadProject(project, i)">
+      <button ion-item>
+        <ion-label>{{ project.title }}</ion-label>
+        <ion-note item-end>{{ project.manager }}</ion-note>
       </button>
+
+      <ion-item-options>
+  <!--      <button ion-button color="secondary" (click)="onEditProject(project, i)">
+          <ion-icon name="create"></ion-icon>
+          Create
+        </button>
+        <button ion-button color="danger" (click)="onDeleteProject(i)"> -->
+          <ion-icon name="trash"></ion-icon>
+          Delete
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
   </ion-list>
 </ion-content>
+
