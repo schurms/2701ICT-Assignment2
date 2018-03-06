@@ -20,8 +20,8 @@
   <ion-list reorder="true" (ionItemReorder)="reorderItems($event)">
     <ion-item-sliding *ngFor="let project of projects; let i = index">
       <button ion-item (click)="onLoadProject(project,i)">
-        <ion-label>{{ project.title }}</ion-label>
-        <ion-note item-end>{{ project.manager }}</ion-note>
+        <h2>{{ project.title }}</h2>
+        <ion-note>{{ project.manager }}</ion-note>
       </button>
       <ion-item-options>
        <button ion-button color="secondary" (click)="onEditProject(project, i)">
