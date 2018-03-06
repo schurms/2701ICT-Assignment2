@@ -19,12 +19,12 @@
     </ion-row>
     <ion-row>
       <ion-col text-center>
-        <p>Start Date {{ project.startDate }}</p>
+        <p>Start Date: {{ project.startDate | date: 'dd/MMM/yyyy' }}</p>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col text-center>
-        <p>End Date {{ project.endDate }}</p>
+        <p>End Date: {{ project.endDate | date: 'dd/MMM/yyyy' }}</p>
       </ion-col>
     </ion-row>
   </ion-grid>
