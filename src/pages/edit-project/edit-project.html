@@ -8,8 +8,9 @@
   <form #projectForm="ngForm" (ngSubmit)="onSubmit(projectForm)">
     <ion-list>
       <ion-item>
-        <ion-label floating>Title</ion-label>
+        <ion-label>Title :</ion-label>
         <ion-input
+          text-left
           type="text"
           name="title"
           maxlength="30"
@@ -17,8 +18,9 @@
           [ngModel]="project.title"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label floating>Manager</ion-label>
+        <ion-label>Manager :</ion-label>
         <ion-input
+          text-left
           type="text"
           name="manager"
           maxlength="30"
@@ -26,8 +28,9 @@
           [ngModel]="project.manager"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label floating>Description</ion-label>
+        <ion-label>Description :</ion-label>
         <ion-textarea
+          text-left
           autosize
           name="description"
           maxlength="200"
@@ -35,8 +38,9 @@
           [ngModel]="project.description"></ion-textarea>
       </ion-item>
       <ion-item>
-        <ion-label floating>Start Date</ion-label>
+        <ion-label>Start Date :</ion-label>
         <ion-datetime
+          text-right
           displayFormat="DD/MMM/YYYY"
           min="2017"
           max="2020-01-01"
@@ -45,8 +49,9 @@
           [ngModel]="project.startDate"></ion-datetime>
       </ion-item>
       <ion-item>
-        <ion-label floating>End Date</ion-label>
+        <ion-label>End Date :</ion-label>
         <ion-datetime
+          text-right
           displayFormat="DD/MMM/YYYY"
           min="2017"
           max="2020-01-01"
