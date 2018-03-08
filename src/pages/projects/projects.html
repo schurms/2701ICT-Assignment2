@@ -19,15 +19,22 @@
 <ion-content padding>
   <ion-list reorder="true" (ionItemReorder)="reorderItems($event)">
     <ion-item-sliding *ngFor="let project of projects; let i = index">
-      <button ion-item (click)="onLoadProject(project,i)">
+      <button ion-item (click)="onLoadProject(project, i)">
         <h2>{{ project.title }}</h2>
         <ion-note>{{ project.manager }}</ion-note>
+        <ion-icon *ngIf="project.done" item-end name="checkmark"></ion-icon>
       </button>
-      <ion-item-options>
-       <button ion-button color="secondary" (click)="onEditProject(project, i)">
+
+
+
+
+      <ion-item-options side="left">
+        <button ion-button color="secondary" (click)="onEditProject(project, i)">
           <ion-icon name="create"></ion-icon>
           Edit
         </button>
+      </ion-item-options>
+      <ion-item-options side="right">
         <button ion-button color="danger" (click)="onDeleteProject(i)">
           <ion-icon name="trash"></ion-icon>
           Delete

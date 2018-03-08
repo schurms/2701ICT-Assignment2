@@ -54,6 +54,13 @@
           required
           [ngModel]="project.endDate"></ion-datetime>
       </ion-item>
+      <ion-item>
+        <ion-label>Project Complete?</ion-label>
+        <ion-checkbox
+          item-right
+          name="done"
+          [ngModel]="project.done"></ion-checkbox>
+      </ion-item>
     </ion-list>
     <button
       ion-button

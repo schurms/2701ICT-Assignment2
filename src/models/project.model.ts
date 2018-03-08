@@ -4,5 +4,6 @@ export class Project {
     public manager: string,
     public description: string,
     public startDate: Date,
-    public endDate: Date) {}
+    public endDate: Date,
+    public done: boolean) {}
 }

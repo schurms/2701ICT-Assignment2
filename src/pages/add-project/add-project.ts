@@ -9,6 +9,7 @@ import { ProjectService } from '../../services/project.service';
 })
 export class AddProjectPage {
 
+
   constructor (private projectService: ProjectService,
                private navCtrl: NavController) {
   }
@@ -19,7 +20,8 @@ export class AddProjectPage {
       form.value.manager,
       form.value.description,
       form.value.startDate,
-      form.value.endDate);
+      form.value.endDate,
+      form.value.done);
 
     form.reset();
     this.navCtrl.popToRoot();

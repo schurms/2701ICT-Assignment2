@@ -4,11 +4,12 @@ export class ProjectService {
   private projects: Project[] = [];
 
   createProject(title: string,
-             manager: string,
-             description: string,
-             startDate: Date,
-             endDate: Date) {
-    this.projects.push(new Project(title, manager, description, startDate, endDate));
+                manager: string,
+                description: string,
+                startDate: Date,
+                endDate: Date,
+                done: boolean) {
+    this.projects.push(new Project(title, manager, description, startDate, endDate, done));
   }
 
   readProjects() {
@@ -20,8 +21,9 @@ export class ProjectService {
                 manager: string,
                 description: string,
                 startDate: Date,
-                endDate: Date) {
-    this.projects[index] = new Project(title, manager, description, startDate, endDate);
+                endDate: Date,
+                done: boolean) {
+    this.projects[index] = new Project(title, manager, description, startDate, endDate, done);
   }
 
   deleteProject(index: number) {

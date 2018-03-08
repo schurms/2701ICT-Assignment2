@@ -9,12 +9,12 @@
     <ion-row>
       <ion-col text-center>
         <h2>{{ project.title }}</h2>
-        <div class="subtitle">{{ project.manager }}</div>
+        <div class="subtitle">Project Manager: {{ project.manager }}</div>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col text-center>
-        <p>{{ project.description }}</p>
+        <p>Project Description: {{ project.description }}</p>
       </ion-col>
     </ion-row>
     <ion-row>
@@ -25,6 +25,14 @@
     <ion-row>
       <ion-col text-center>
         <p>End Date: {{ project.endDate | date: 'dd/MMM/yyyy' }}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col text-center>
+        <p *ngIf="project.done; else notDone">Project Completed: Yes</p>
+        <ng-template #notDone>
+          <p>Project Completed: No</p>
+        </ng-template>
       </ion-col>
     </ion-row>
   </ion-grid>

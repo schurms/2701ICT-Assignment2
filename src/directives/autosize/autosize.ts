@@ -24,3 +24,5 @@ export class Autosize implements OnInit {
     textArea.style.height = textArea.scrollHeight + "px";
   }
 }
+
+// https://competenepal.com/elastic-text-area-component-in-ionic-framework/
