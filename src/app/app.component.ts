@@ -26,7 +26,7 @@ export class MyApp {
   }
 
   onLogout() {
-    this.menuCtrl.close(); 
+    this.menuCtrl.close();
     this.navCtrl.popToRoot();
 
   }
