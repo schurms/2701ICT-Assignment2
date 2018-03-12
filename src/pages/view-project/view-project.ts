@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {AlertController, NavController, NavParams} from 'ionic-angular';
+import { Component } from '@angular/core';
+import { AlertController, NavController, NavParams } from 'ionic-angular';
 import { Project } from '../../models/project.model';
 import { ProjectService } from '../../services/project.service';
 import { EditProjectPage } from '../edit-project/edit-project';
@@ -8,7 +8,7 @@ import { EditProjectPage } from '../edit-project/edit-project';
   selector: 'page-view-project',
   templateUrl: 'view-project.html',
 })
-export class ViewProjectPage implements OnInit{
+export class ViewProjectPage{
 
   project: Project;
   index: number;
@@ -17,11 +17,10 @@ export class ViewProjectPage implements OnInit{
               public navParams: NavParams,
               private projectService: ProjectService,
               private alertCtrl: AlertController) {
-  }
 
-  ngOnInit() {
     this.project = this.navParams.get('project');
     this.index = this.navParams.get('index');
+
   }
 
   onEditProject() {
@@ -46,7 +45,6 @@ export class ViewProjectPage implements OnInit{
       ]
     });
     alert.present();
-
   }
 
 }

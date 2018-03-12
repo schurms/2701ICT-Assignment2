@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {AlertController, NavController, reorderArray} from 'ionic-angular';
+import { AlertController, NavController, reorderArray } from 'ionic-angular';
 
 import { AddProjectPage } from '../add-project/add-project'
 import { ViewProjectPage} from '../view-project/view-project';
