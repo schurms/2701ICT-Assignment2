@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
-import { AboutPage } from '../pages/about/about';
+import { FaqPage } from '../pages/faq/faq';
 import { TabsPage } from '../pages/tabs/tabs';
 import { WelcomePage } from '../pages/welcome/welcome';
 import { LoginPage}  from '../pages/login/login';
@@ -18,11 +18,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { Autosize } from '../directives/autosize/autosize';
 import { ProjectService } from '../services/project.service';
+import {ViewFaqPage} from '../pages/view-faq/view-faq';
 
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
+    FaqPage,
+    ViewFaqPage,
     ProjectsPage,
     AddProjectPage,
     EditProjectPage,
@@ -40,7 +42,8 @@ import { ProjectService } from '../services/project.service';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
+    FaqPage,
+    ViewFaqPage,
     ProjectsPage,
     AddProjectPage,
     EditProjectPage,

@@ -6,7 +6,7 @@ import { ViewProjectPage} from '../view-project/view-project';
 
 import { ProjectService } from '../../services/project.service';
 import { Project } from '../../models/project.model';
-import {EditProjectPage} from '../edit-project/edit-project';
+import { EditProjectPage } from '../edit-project/edit-project';
 
 @Component({
   selector: 'page-projects',
