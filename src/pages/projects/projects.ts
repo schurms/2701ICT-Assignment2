@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, reorderArray } from 'ionic-angular';
+import {AlertController, NavController, reorderArray} from 'ionic-angular';
 
 import { AddProjectPage } from '../add-project/add-project'
 import { ViewProjectPage} from '../view-project/view-project';
@@ -19,7 +19,8 @@ export class ProjectsPage {
   index: number;
 
   constructor(public navCtrl: NavController,
-              private projectService: ProjectService) {
+              private projectService: ProjectService,
+              private alertCtrl: AlertController) {
   }
 
   ionViewWillEnter() {
@@ -43,7 +44,22 @@ export class ProjectsPage {
   }
 
   onDeleteProject(index: number) {
-    this.projectService.deleteProject(index);
+    let alert = this.alertCtrl.create({
+      title: 'Record Deletion!',
+      message: 'Do you want to delete this record?',
+      buttons: [
+        {
+          text: 'Cancel'
+        },
+        {
+          text: 'Continue',
+          handler: () => {
+            this.projectService.deleteProject(index);
+          }
+        }
+      ]
+    });
+    alert.present();
   }
 
 }

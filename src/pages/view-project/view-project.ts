@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import {AlertController, NavController, NavParams} from 'ionic-angular';
 import { Project } from '../../models/project.model';
 import { ProjectService } from '../../services/project.service';
 import { EditProjectPage } from '../edit-project/edit-project';
@@ -15,7 +15,8 @@ export class ViewProjectPage implements OnInit{
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              private projectService: ProjectService) {
+              private projectService: ProjectService,
+              private alertCtrl: AlertController) {
   }
 
   ngOnInit() {
@@ -28,8 +29,24 @@ export class ViewProjectPage implements OnInit{
   }
 
   onDeleteProject() {
-    this.projectService.deleteProject(this.index);
-    this.navCtrl.popToRoot();
+    let alert = this.alertCtrl.create({
+      title: 'Record Deletion!',
+      message: 'Do you want to delete this record?',
+      buttons: [
+        {
+          text: 'Cancel'
+        },
+        {
+          text: 'Continue',
+          handler: () => {
+            this.projectService.deleteProject(this.index);
+            this.navCtrl.popToRoot();
+          }
+        }
+      ]
+    });
+    alert.present();
+
   }
 
 }

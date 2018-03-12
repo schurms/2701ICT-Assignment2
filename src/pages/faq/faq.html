@@ -6,11 +6,20 @@
       </button>
     </ion-buttons>
     <ion-title>
-      About
+      Faqs
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-
+  <ion-list>
+    <button
+      ion-item
+      *ngFor="let faq of faqs; let i = index"
+      (click)="onLoadFaq(faq, i)">
+      <h2>{{ faq.name }}</h2>
+    </button>
+  </ion-list>
 </ion-content>
+
+
