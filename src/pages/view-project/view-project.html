@@ -35,15 +35,21 @@
         </ng-template>
       </ion-col>
     </ion-row>
+    <ion-row>
+      <ion-col>
+        <button
+          style="width:100%"
+          ion-button
+          color="secondary"
+          (click)="onEditProject()">  Edit Project</button>
+      </ion-col>
+      <ion-col>
+        <button
+          style="width:100%"
+          ion-button
+          color="danger"
+          (click)="onDeleteProject()">Delete Project</button>
+      </ion-col>
+    </ion-row>
   </ion-grid>
-  <button
-    ion-button
-    color="secondary"
-    block
-    (click)="onEditProject()">Edit Project</button>
-  <button
-    ion-button
-    color="danger"
-    block
-    (click)="onDeleteProject()">Delete Project</button>
 </ion-content>
