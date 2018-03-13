@@ -45,8 +45,8 @@ export class ProjectsPage {
 
   onDeleteProject(index: number) {
     let alert = this.alertCtrl.create({
-      title: 'Record Deletion!',
-      message: 'Do you want to delete this record?',
+      title: 'Project Deletion!',
+      message: 'Do you want to delete this project?',
       buttons: [
         {
           text: 'Cancel'

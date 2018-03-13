@@ -16,18 +16,18 @@ export class FaqPage {
 
     this.faqs = [
       {
-        name: 'Adding a Project',
+        name: 'Add a Project',
         description: 'To add a new project select the + in the top right of the screen. ' +
         'The Add Project page is displayed.  Information can be added.  All fields except the end date are mandatory'
       },
       {
-        name: 'Deleting a Project',
+        name: 'Delete a Project',
         description: 'To delete an existing project there are two methods. The first method is from the ' +
         'Projects Screen.  For the selected item, slide left and select "Delete". The second method is to ' +
         'click on the selected item.  The Project Detail page is displayed and you can select the' +
         ' "Delete Project" button.'},
       {
-        name: 'Updating a Project',
+        name: 'Update a Project',
         description: 'To edit an existing project there are two methods. The first method is from the Projects' +
         ' Screen. For the selected item, slide right and select "Edit". The second method is to click on the ' +
         'selected item. The Project Detail page is displayed and you can select the "Edit" button.  At the Edit' +
