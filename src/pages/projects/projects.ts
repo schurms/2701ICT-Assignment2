@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { AlertController, NavController, reorderArray } from 'ionic-angular';
 
+import { ViewProjectPage } from '../view-project/view-project';
 import { AddProjectPage } from '../add-project/add-project'
-import { ViewProjectPage} from '../view-project/view-project';
+import { EditProjectPage } from '../edit-project/edit-project';
 
 import { ProjectService } from '../../services/project.service';
 import { Project } from '../../models/project.model';
-import { EditProjectPage } from '../edit-project/edit-project';
 
 @Component({
   selector: 'page-projects',
