@@ -37,9 +37,7 @@ export class ProjectService {
           this.projects = projects != null ? projects : [];
         }
       )
-      .catch(
-        err => console.log(err)
-      );
+      .catch();
   }
 
   updateProject(index: number,
@@ -51,21 +49,16 @@ export class ProjectService {
                 done: boolean) {
     const project = new Project(title, manager, description, startDate, endDate, done);
     this.projects[index] = project;
-    // this.projects.push(project);
-    // this.projects.splice(index, 1);
     this.storage.set('projects', this.projects)
       .then()
       .catch();
-
   }
 
   deleteProject(index: number) {
     this.projects.splice(index, 1);
     this.storage.set('projects', this.projects)
       .then()
-      .catch(
-        err => console.log(err)
-      );
+      .catch();
   }
 
 }
