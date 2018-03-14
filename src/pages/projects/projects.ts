@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { AlertController, NavController, reorderArray } from 'ionic-angular';
 
 import { ViewProjectPage } from '../view-project/view-project';
@@ -12,15 +12,23 @@ import { Project } from '../../models/project.model';
   selector: 'page-projects',
   templateUrl: 'projects.html',
 })
-export class ProjectsPage {
+export class ProjectsPage implements OnInit{
 
-  projects: Project[];
+  projects: Project[] = [];
   project: Project;
   index: number;
 
   constructor(public navCtrl: NavController,
               private projectService: ProjectService,
               private alertCtrl: AlertController) {
+  }
+
+  ngOnInit() {
+    this.projectService.fetchProjects();
+  }
+
+  ionViewDidLoad() {
+    this.projectService.fetchProjects();
   }
 
   ionViewWillEnter() {
