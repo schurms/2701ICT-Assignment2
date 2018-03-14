@@ -59,11 +59,14 @@
           ngModel></ion-datetime>
       </ion-item>
     </ion-list>
-    <button
-      ion-button
-      type="submit"
-      color="secondary"
-      block
-      [disabled]="!projectForm.valid">Save New Project</button>
+    <ion-row>
+      <ion-col style="text-align: center">
+        <button
+          ion-button
+          type="submit"
+          color="secondary"
+          [disabled]="!projectForm.valid">Save Project</button>
+      </ion-col>
+    </ion-row>
   </form>
 </ion-content>
