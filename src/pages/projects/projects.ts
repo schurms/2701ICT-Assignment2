@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AlertController, NavController, reorderArray } from 'ionic-angular';
+import { AlertController, NavController } from 'ionic-angular';
 
 import { ViewProjectPage } from '../view-project/view-project';
 import { AddProjectPage } from '../add-project/add-project'
@@ -36,7 +36,8 @@ export class ProjectsPage {
   }
 
   reorderItems(indexes) {
-    this.projects = reorderArray(this.projects, indexes);
+    // this.projects = reorderArray(this.projects, indexes);
+   this.projectService.reorderArray(indexes);
   }
 
   onEditProject(project: Project, index: number) {

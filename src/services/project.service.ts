@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Storage } from "@ionic/storage";
 
 import { Project } from '../models/project.model';
+import { reorderArray } from 'ionic-angular';
 
 @Injectable()
 export class ProjectService {
@@ -56,6 +57,13 @@ export class ProjectService {
 
   deleteProject(index: number) {
     this.projects.splice(index, 1);
+    this.storage.set('projects', this.projects)
+      .then()
+      .catch();
+  }
+
+  reorderArray(indexes) {
+    this.projects = reorderArray(this.projects, indexes);
     this.storage.set('projects', this.projects)
       .then()
       .catch();
