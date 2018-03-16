@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>{{ project.title }}</ion-title>
+    <ion-title>View Project</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -9,31 +9,25 @@
     <ion-row>
       <ion-col text-center>
         <h2>{{ project.title }}</h2>
-        <div class="subtitle">Project Manager: {{ project.manager }}</div>
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col text-center>
-        <p text-md-left>Project Description: {{ project.description }}</p>
-      </ion-col>
+      <p><strong>Project Manager:</strong> {{ project.manager }}</p>
     </ion-row>
     <ion-row>
-      <ion-col text-center>
-        <p>Start Date: {{ project.startDate | date: 'dd/MMM/yyyy' }}</p>
-      </ion-col>
+      <p><strong>Description:</strong> {{ project.description }}</p>
     </ion-row>
     <ion-row>
-      <ion-col text-center>
-        <p>End Date: {{ project.endDate | date: 'dd/MMM/yyyy' }}</p>
-      </ion-col>
+        <p><strong>Start Date:</strong> {{ project.startDate | date: 'dd/MMM/yyyy' }}</p>
     </ion-row>
     <ion-row>
-      <ion-col text-center>
-        <p *ngIf="project.done; else notDone">Project Completed: Yes</p>
+        <p><strong>End Date:</strong> {{ project.endDate | date: 'dd/MMM/yyyy' }}</p>
+    </ion-row>
+    <ion-row>
+      <p *ngIf="project.done; else notDone"><b>Completed:</b> Yes</p>
         <ng-template #notDone>
-          <p>Project Completed: No</p>
+          <p><strong>Completed:</strong> No</p>
         </ng-template>
-      </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
