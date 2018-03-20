@@ -18,8 +18,6 @@ export class LoginPage {
   onLogin(form: NgForm) {
     this.username = form.value.username;
     this.password = form.value.password;
-    // validate username and password combination
-    // console.log(this.username, this.password);
     this.navCtrl.push(TabsPage);
   }
 

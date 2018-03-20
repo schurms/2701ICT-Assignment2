@@ -10,6 +10,7 @@ export class ProjectService {
 
   constructor(private storage: Storage) {}
 
+  // Add a new project
   createProject(title: string,
                 manager: string,
                 description: string,
@@ -27,10 +28,12 @@ export class ProjectService {
       );
   }
 
+  // Read all projects
   readProjects() {
     return this.projects;
   }
 
+  // Fetch projects from storage
   fetchProjects() {
     this.storage.get('projects')
       .then(
@@ -41,6 +44,7 @@ export class ProjectService {
       .catch();
   }
 
+  //
   updateProject(index: number,
                 title: string,
                 manager: string,

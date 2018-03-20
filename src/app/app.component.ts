@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MenuController, NavController, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -27,7 +27,7 @@ export class MyApp implements OnInit {
     });
   }
 
-  // Load projects from local storage
+  // Load projects from local storage ready to process
   ngOnInit() {
     this.projectService.fetchProjects();
   }
