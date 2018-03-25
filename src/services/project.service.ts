@@ -16,8 +16,9 @@ export class ProjectService {
                 description: string,
                 startDate: Date,
                 endDate: Date,
+                taskEffort: number,
                 done: boolean) {
-    const project = new Project(title, manager, description, startDate, endDate, done);
+    const project = new Project(title, manager, description, startDate, endDate, taskEffort, done);
     this.projects.push(project);
     this.storage.set('projects', this.projects)
       .then()
@@ -51,8 +52,9 @@ export class ProjectService {
                 description: string,
                 startDate: Date,
                 endDate: Date,
+                taskEffort: number,
                 done: boolean) {
-    const project = new Project(title, manager, description, startDate, endDate, done);
+    const project = new Project(title, manager, description, startDate, endDate, taskEffort, done);
     this.projects[index] = project;
     this.storage.set('projects', this.projects)
       .then()

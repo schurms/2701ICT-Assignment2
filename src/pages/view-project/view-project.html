@@ -24,6 +24,9 @@
         <p><strong>End Date:</strong> {{ project.endDate | date: 'dd/MMM/yyyy' }}</p>
     </ion-row>
     <ion-row>
+      <p><strong>Task Days:</strong> {{ project.taskDays }}</p>
+    </ion-row>
+    <ion-row>
       <p *ngIf="project.done; else notDone"><b>Completed:</b> Yes</p>
         <ng-template #notDone>
           <p><strong>Completed:</strong> No</p>

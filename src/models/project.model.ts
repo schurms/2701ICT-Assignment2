@@ -5,5 +5,6 @@ export class Project {
     public description: string,
     public startDate: Date,
     public endDate: Date,
+    public taskEffort: number,
     public done: boolean) {}
 }

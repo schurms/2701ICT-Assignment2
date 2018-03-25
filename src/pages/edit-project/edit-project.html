@@ -59,6 +59,15 @@
           [ngModel]="project.endDate"></ion-datetime>
       </ion-item>
       <ion-item>
+        <ion-label>Task Effort :</ion-label>
+        <ion-input
+          text-left
+          type="number"
+          name="taskEffort"
+          min="0"
+          [ngModel]="project.taskDays"></ion-input>
+      </ion-item>
+      <ion-item>
         <ion-label>Project Complete?</ion-label>
         <ion-checkbox
           item-right

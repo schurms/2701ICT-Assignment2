@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import {IonicPage, NavParams, ViewController} from 'ionic-angular';
+import { IonicPage, NavParams, ViewController } from 'ionic-angular';
 import { Faq } from '../../models/faq.model';
 
 @IonicPage()
 @Component({
-  selector: 'page-view-faq',
-  templateUrl: 'view-faq.html',
+  selector: 'page-modal',
+  templateUrl: 'modal.html',
 })
-export class ViewFaqPage {
+export class ModalPage {
 
   faq: Faq;
 

@@ -18,14 +18,12 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { Autosize } from '../directives/autosize/autosize';
 import { ProjectService } from '../services/project.service';
-import {ViewFaqPage} from '../pages/view-faq/view-faq';
-import {IonicStorageModule} from '@ionic/storage';
+import { IonicStorageModule } from '@ionic/storage';
 
 @NgModule({
   declarations: [
     MyApp,
     FaqPage,
-    ViewFaqPage,
     ProjectsPage,
     AddProjectPage,
     EditProjectPage,
@@ -45,7 +43,6 @@ import {IonicStorageModule} from '@ionic/storage';
   entryComponents: [
     MyApp,
     FaqPage,
-    ViewFaqPage,
     ProjectsPage,
     AddProjectPage,
     EditProjectPage,

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { NgForm } from '@angular/forms';
 import { ProjectService } from '../../services/project.service';
@@ -8,7 +8,7 @@ import { Project } from '../../models/project.model';
   selector: 'page-edit-project',
   templateUrl: 'edit-project.html'
 })
-export class EditProjectPage implements OnInit {
+export class EditProjectPage {
 
   project: Project;
   index: number;
@@ -16,13 +16,13 @@ export class EditProjectPage implements OnInit {
   constructor (private navParams: NavParams,
                private projectService: ProjectService,
                private navCtrl: NavController) {
-  }
 
-  ngOnInit() {
     this.project = this.navParams.get('project');
     this.index = this.navParams.get('index');
   }
 
+  // On form submit get the values from the form and send the updated data to
+  // the updateProject form
   onSubmit(form: NgForm) {
     this.projectService.updateProject(
       this.index,
@@ -31,6 +31,7 @@ export class EditProjectPage implements OnInit {
       form.value.description,
       form.value.startDate,
       form.value.endDate,
+      form.value.taskEffort,
       form.value.done);
 
     form.reset();

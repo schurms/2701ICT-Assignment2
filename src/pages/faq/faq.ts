@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ModalController } from 'ionic-angular';
 import { Faq } from '../../models/faq.model';
-import { ViewFaqPage } from '../view-faq/view-faq';
 
 @Component({
   selector: 'page-faq',
@@ -12,7 +11,7 @@ export class FaqPage {
   faqs: Faq[];
   index: number;
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, private modal: ModalController) {
 
     this.faqs = [
       {
@@ -37,8 +36,11 @@ export class FaqPage {
 
   }
 
+  // Load the Faq detail page as a modal
   onLoadFaq(faq: Faq, index: number) {
-    this.navCtrl.push(ViewFaqPage, {faq: faq, index: index});
+    const faqModal = this.modal.create('ViewFaqPage', {faq: faq, index: index});
+
+    faqModal.present();
   }
 
 }

@@ -21,6 +21,7 @@ export class AddProjectPage {
       form.value.description,
       form.value.startDate,
       form.value.endDate,
+      form.value.taskEffort,
       form.value.done);
 
     form.reset();
