@@ -10,7 +10,7 @@ export class ProjectService {
 
   constructor(private storage: Storage) {}
 
-  // Add a new project
+  // Add a new project to the Array. Update local storage.
   createProject(title: string,
                 manager: string,
                 description: string,
@@ -34,7 +34,29 @@ export class ProjectService {
     return this.projects;
   }
 
-  // Fetch projects from storage
+  // Count number of not done projects
+  countNotDoneProjects() {
+    let count = 0;
+    this.projects.forEach( item =>  {
+      if (!item.done) {
+        count++;
+      }
+    })
+    return count;
+  }
+
+  // Count number of done projects
+  countDoneProjects() {
+    let count = 0;
+    this.projects.forEach( item =>  {
+      if (item.done) {
+        count++;
+      }
+    })
+    return count;
+  }
+
+  // Fetch projects from local storage.
   fetchProjects() {
     this.storage.get('projects')
       .then(
@@ -45,7 +67,7 @@ export class ProjectService {
       .catch();
   }
 
-  //
+  // Update the project in the Array.  Update local storage.
   updateProject(index: number,
                 title: string,
                 manager: string,
@@ -61,6 +83,7 @@ export class ProjectService {
       .catch();
   }
 
+  // Delete the project from the Array. Update local storage.
   deleteProject(index: number) {
     this.projects.splice(index, 1);
     this.storage.set('projects', this.projects)
@@ -68,6 +91,7 @@ export class ProjectService {
       .catch();
   }
 
+  // Reorder the projects in the Array. Update local storage.
   reorderArray(indexes) {
     this.projects = reorderArray(this.projects, indexes);
     this.storage.set('projects', this.projects)

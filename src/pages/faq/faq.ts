@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, ModalController } from 'ionic-angular';
 import { Faq } from '../../models/faq.model';
+import { ProjectService } from '../../services/project.service';
 
 @Component({
   selector: 'page-faq',
@@ -10,8 +11,10 @@ export class FaqPage {
 
   faqs: Faq[];
   index: number;
+  numNotDone: number;
+  numDone: number;
 
-  constructor(public navCtrl: NavController, private modal: ModalController) {
+  constructor(public navCtrl: NavController, private modal: ModalController, private projectService: ProjectService) {
 
     this.faqs = [
       {
@@ -35,6 +38,13 @@ export class FaqPage {
     ];
 
   }
+
+  ionViewWillEnter() {
+    this.numNotDone = this.projectService.countNotDoneProjects();
+    this.numDone = this.projectService.countDoneProjects()
+    console.log(this.numNotDone, this.numDone);
+  }
+
 
   // Load the Faq detail page as a modal
   onLoadFaq(faq: Faq, index: number) {
