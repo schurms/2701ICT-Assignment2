@@ -14,11 +14,10 @@ export class ProjectService {
   createProject(title: string,
                 manager: string,
                 description: string,
-                startDate: Date,
-                endDate: Date,
-                taskEffort: number,
+                dueDate: Date,
+                priority: number,
                 done: boolean) {
-    const project = new Project(title, manager, description, startDate, endDate, taskEffort, done);
+    const project = new Project(title, manager, description, dueDate, priority, done);
     this.projects.push(project);
     this.storage.set('projects', this.projects)
       .then()
@@ -64,11 +63,10 @@ export class ProjectService {
                 title: string,
                 manager: string,
                 description: string,
-                startDate: Date,
-                endDate: Date,
-                taskEffort: number,
+                dueDate: Date,
+                priority: number,
                 done: boolean) {
-    const project = new Project(title, manager, description, startDate, endDate, taskEffort, done);
+    const project = new Project(title, manager, description, dueDate, priority, done);
     this.projects[index] = project;
     this.storage.set('projects', this.projects)
       .then()

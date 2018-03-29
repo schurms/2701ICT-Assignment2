@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ViewController } from 'ionic-angular';
 import { NgForm } from '@angular/forms';
 import { ProjectService } from '../../services/project.service';
 import { Project } from '../../models/project.model';
@@ -15,10 +15,16 @@ export class EditProjectPage {
 
   constructor (private navParams: NavParams,
                private projectService: ProjectService,
-               private navCtrl: NavController) {
+               private navCtrl: NavController,
+               public viewCtrl: ViewController) {
 
     this.project = this.navParams.get('project');
     this.index = this.navParams.get('index');
+  }
+
+  // Set the cancel button on load
+  ionViewDidLoad() {
+    this.viewCtrl.setBackButtonText('Cancel');
   }
 
   // On form submit get the values from the form and send the updated data to
@@ -29,9 +35,8 @@ export class EditProjectPage {
       form.value.title,
       form.value.manager,
       form.value.description,
-      form.value.startDate,
-      form.value.endDate,
-      form.value.taskEffort,
+      form.value.dueDate,
+      form.value.priority,
       form.value.done);
 
     form.reset();

@@ -3,8 +3,7 @@ export class Project {
     public title: string,
     public manager: string,
     public description: string,
-    public startDate: Date,
-    public endDate: Date,
-    public taskEffort: number,
+    public dueDate: Date,
+    public priority: number,
     public done: boolean) {}
 }

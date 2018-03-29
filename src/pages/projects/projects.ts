@@ -16,7 +16,6 @@ export class ProjectsPage {
 
   projects: Project[] = [];
   project: Project;
-  numProjects: number;
   index: number;
 
   constructor(public navCtrl: NavController,

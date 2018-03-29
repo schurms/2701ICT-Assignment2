@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Site Location</ion-title>
+    <ion-buttons left>
+      <button ion-button type="submit" (click)="onConfirm()">Cancel</button>
+    </ion-buttons>
+    <ion-buttons right>
+      <button ion-button type="submit" (click)="onConfirm()">Save</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <agm-map
+          [latitude]="-27.5550897"
+          [longitude]="153.0532585"
+          [zoom]="16">
+        </agm-map>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

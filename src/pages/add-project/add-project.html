@@ -1,6 +1,11 @@
 <ion-header>
   <ion-navbar>
     <ion-title>Add Project</ion-title>
+    <form #projectForm="ngForm" (ngSubmit)="onSubmit(projectForm)">
+      <ion-buttons end>
+       <button ion-button type="submit" [disabled]="!projectForm.valid">Save</button>
+      </ion-buttons>
+    </form>
   </ion-navbar>
 </ion-header>
 
@@ -38,44 +43,37 @@
           ngModel></ion-textarea>
       </ion-item>
       <ion-item>
-        <ion-label>Start Date :</ion-label>
+        <ion-label>Due Date :</ion-label>
         <ion-datetime
           text-right
           displayFormat="DD/MMM/YYYY"
-          min="2017"
-          max="2020-01-01"
-          name="startDate"
-          required
+          min="2017-01-01"
+          max="2020-12-31"
+          name="dueDate"
           ngModel></ion-datetime>
       </ion-item>
       <ion-item>
-        <ion-label>End Date :</ion-label>
-        <ion-datetime
-          text-right
-          displayFormat="DD/MMM/YYYY"
-          min="2017"
-          max="2020-01-01"
-          name="endDate"
-          ngModel></ion-datetime>
-      </ion-item>
-      <ion-item>
-        <ion-label>Task Effort :</ion-label>
+        <ion-label>Priority :</ion-label>
         <ion-input
         text-left
         type="number"
-        name="taskEffort"
-        min="0"
+        name="priority"
+        min="1"
+        max="3"
         ngModel></ion-input>
       </ion-item>
-    </ion-list>
-    <ion-row>
-      <ion-col style="text-align: center">
+      <ion-col>
         <button
           ion-button
-          type="submit"
-          color="secondary"
-          [disabled]="!projectForm.valid">Save Project</button>
+          block
+          outline
+          type="button"
+          icon-left
+          (click)="onSelectSite()">
+          <ion-icon name="map"></ion-icon>
+          Add Site
+        </button>
       </ion-col>
-    </ion-row>
+    </ion-list>
   </form>
 </ion-content>
