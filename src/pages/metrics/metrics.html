@@ -5,19 +5,16 @@
         <ion-icon name="menu"></ion-icon>
       </button>
     </ion-buttons>
-    <ion-title>FAQs</ion-title>
+    <ion-title>Metrics</ion-title>
   </ion-navbar>
 </ion-header>
 
+
 <ion-content padding>
-  <ion-list>
-    <button
-      ion-item
-      *ngFor="let faq of faqs; let i = index"
-      (click)="onLoadFaq(faq, i)">
-      <h2>{{ faq.name }}</h2>
-    </button>
-  </ion-list>
+  <div style="display: block">
+    <canvas baseChart
+            [data]="doughnutChartData"
+            [labels]="doughnutChartLabels"
+            [chartType]="doughnutChartType"></canvas>
+  </div>
 </ion-content>
-
-

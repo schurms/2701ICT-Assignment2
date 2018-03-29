@@ -1,10 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MenuController, NavController, Platform } from 'ionic-angular';
+import { App, MenuController, NavController, Platform} from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { WelcomePage } from '../pages/welcome/welcome';
 import { ProjectService } from '../services/project.service';
+import { WelcomePage } from '../pages/welcome/welcome';
 
 @Component({
   templateUrl: 'app.html'
@@ -18,7 +18,8 @@ export class MyApp implements OnInit {
               statusBar: StatusBar,
               splashScreen: SplashScreen,
               private menuCtrl: MenuController,
-              private projectService: ProjectService) {
+              private projectService: ProjectService,
+              public app: App) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.

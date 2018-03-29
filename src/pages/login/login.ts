@@ -13,11 +13,18 @@ export class LoginPage {
   password: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.password = "";
+    this.username = "";
+  }
+
+  ionViewDidEnter() {
+    this.username = ""
+    this.password = ""
   }
 
   onLogin(form: NgForm) {
-    this.username = form.value.username;
-    this.password = form.value.password;
+    // this.username = form.value.username;
+    //  this.password = form.value.password;
     this.navCtrl.push(TabsPage);
   }
 

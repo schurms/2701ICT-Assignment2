@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
-import {IonicPage, NavParams, ViewController} from 'ionic-angular';
-import { Faq } from '../../models/faq.model';
+import { NavParams, ViewController} from 'ionic-angular';
 
-@IonicPage()
+export interface Faq {
+  name: string;
+  description: string;
+}
+
 @Component({
   selector: 'page-view-faq',
   templateUrl: 'view-faq.html',
@@ -15,6 +18,7 @@ export class ViewFaqPage {
     this.faq = this.navParams.get('faq');
   }
 
+  // Dismiss the page and return to the FAQs Page
   closeFaq() {
     this.viewCrtl.dismiss();
   }

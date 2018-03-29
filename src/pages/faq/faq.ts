@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController, ModalController } from 'ionic-angular';
-import { Faq } from '../../models/faq.model';
-import { ProjectService } from '../../services/project.service';
+import { ModalController } from 'ionic-angular';
+import { ViewFaqPage } from '../view-faq/view-faq';
+import {Faq} from '../../models/faq.model';
+
 
 @Component({
   selector: 'page-faq',
@@ -11,10 +12,8 @@ export class FaqPage {
 
   faqs: Faq[];
   index: number;
-  numNotDone: number;
-  numDone: number;
 
-  constructor(public navCtrl: NavController, private modal: ModalController, private projectService: ProjectService) {
+  constructor(private modalCtrl: ModalController) {
 
     this.faqs = [
       {
@@ -39,18 +38,10 @@ export class FaqPage {
 
   }
 
-  ionViewWillEnter() {
-    this.numNotDone = this.projectService.countNotDoneProjects();
-    this.numDone = this.projectService.countDoneProjects()
-    console.log(this.numNotDone, this.numDone);
-  }
-
-
-  // Load the Faq detail page as a modal
+  // Load the Faq Modal detail page when item selected
   onLoadFaq(faq: Faq, index: number) {
-    const faqModal = this.modal.create('ViewFaqPage', {faq: faq, index: index});
-
-    faqModal.present();
+    const modal = this.modalCtrl.create(ViewFaqPage, {faq: faq, index: index});
+    modal.present();
   }
 
 }

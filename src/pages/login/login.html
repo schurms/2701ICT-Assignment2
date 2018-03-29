@@ -2,8 +2,8 @@
   <form #loginForm="ngForm" (ngSubmit)="onLogin(loginForm)">
     <ion-card>
       <img src="assets/imgs/logo1.png" class="logo"/>
-      <ion-card-header>
-        Trakka
+      <ion-card-header text-center>
+        <h1>Trakka</h1>
       </ion-card-header>
       <ion-card-content>
         <ion-list no-line>
@@ -23,15 +23,18 @@
               ngModel
               required></ion-input>
           </ion-item>
-          <button
-            ion-button
-            type="submit"
-            color="light"
-            block
-            [disabled]="!loginForm.valid">Log in</button>
         </ion-list>
       </ion-card-content>
     </ion-card>
+    <ion-grid>
+      <ion-col>
+        <button
+          ion-button
+          type="submit"
+          round
+          color="light"
+          [disabled]="!loginForm.valid">Log in</button>
+      </ion-col>
+    </ion-grid>
   </form>
 </ion-content>
-

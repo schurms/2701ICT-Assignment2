@@ -34,26 +34,18 @@ export class ProjectService {
     return this.projects;
   }
 
-  // Count number of not done projects
-  countNotDoneProjects() {
-    let count = 0;
+  // Get project metrics
+  countProjects() {
+    let notDoneProjects = 0;
+    let doneProjects = 0;
     this.projects.forEach( item =>  {
       if (!item.done) {
-        count++;
+        notDoneProjects++;
+      } else {
+        doneProjects++;
       }
     })
-    return count;
-  }
-
-  // Count number of done projects
-  countDoneProjects() {
-    let count = 0;
-    this.projects.forEach( item =>  {
-      if (item.done) {
-        count++;
-      }
-    })
-    return count;
+    return [notDoneProjects, doneProjects];
   }
 
   // Fetch projects from local storage.

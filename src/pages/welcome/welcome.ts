@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 import { LoginPage } from '../login/login';
-import { SignupPage } from '../signup/signup';
 
 @Component({
   selector: 'page-welcome',
@@ -15,10 +14,6 @@ export class WelcomePage {
 
   onLogin() {
     this.navCtrl.push(LoginPage);
-  }
-
-  onSignup() {
-    this.navCtrl.push(SignupPage);
   }
 
 }
