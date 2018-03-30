@@ -18,10 +18,10 @@
       <p><strong>Description:</strong> {{ project.description }}</p>
     </ion-row>
     <ion-row>
-        <p><strong>Start Date:</strong> {{ project.dueDate | date: 'dd/MMM/yyyy' }}</p>
+        <p><strong>Due Date:</strong> {{ project.dueDate | date: 'dd/MMM/yyyy' }}</p>
     </ion-row>
     <ion-row>
-      <p><strong>Task Effort:</strong> {{ project.priority }}</p>
+      <p><strong>Priority:</strong> {{ project.priority }}</p>
     </ion-row>
     <ion-row>
       <p *ngIf="project.done; else notDone"><b>Completed:</b> Yes</p>
