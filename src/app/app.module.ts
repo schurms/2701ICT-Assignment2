@@ -4,16 +4,16 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import { WelcomePage } from '../pages/welcome/welcome';
-import { FaqPage } from '../pages/faq/faq';
-import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage}  from '../pages/login/login';
 import { ProjectsPage } from '../pages/projects/projects';
 import { AddProjectPage } from '../pages/add-project/add-project';
 import { EditProjectPage } from '../pages/edit-project/edit-project';
 import { ViewProjectPage } from '../pages/view-project/view-project';
-import { ViewFaqPage } from '../pages/view-faq/view-faq';
-import { MetricsPage } from '../pages/metrics/metrics';
 import { SiteLocationPage } from '../pages/site-location/site-location';
+import { MetricsPage } from '../pages/metrics/metrics';
+import { FaqPage } from '../pages/faq/faq';
+import { ViewFaqPage } from '../pages/view-faq/view-faq';
+import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -28,16 +28,16 @@ import { AgmCoreModule } from '@agm/core';
   declarations: [
     MyApp,
     WelcomePage,
-    FaqPage,
+    LoginPage,
     ProjectsPage,
     AddProjectPage,
     EditProjectPage,
     ViewProjectPage,
+    SiteLocationPage,
+    MetricsPage,
+    FaqPage,
     ViewFaqPage,
     TabsPage,
-    LoginPage,
-    MetricsPage,
-    SiteLocationPage,
     Autosize
   ],
   imports: [
@@ -53,16 +53,16 @@ import { AgmCoreModule } from '@agm/core';
   entryComponents: [
     MyApp,
     WelcomePage,
-    FaqPage,
+    LoginPage,
     ProjectsPage,
     AddProjectPage,
     EditProjectPage,
     ViewProjectPage,
-    ViewFaqPage,
-    TabsPage,
-    LoginPage,
+    SiteLocationPage,
     MetricsPage,
-    SiteLocationPage
+    FaqPage,
+    ViewFaqPage,
+    TabsPage
   ],
   providers: [
     StatusBar,
