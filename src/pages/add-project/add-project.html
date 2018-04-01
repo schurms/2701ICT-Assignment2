@@ -3,7 +3,7 @@
     <ion-title>Add Project</ion-title>
     <form #projectForm="ngForm" (ngSubmit)="onSubmit(projectForm)">
       <ion-buttons end>
-       <button ion-button type="submit" [disabled]="!projectForm.valid">Save</button>
+       <button ion-button type="submit" [disabled]="!projectForm.valid || !siteIsSet">Save</button>
       </ion-buttons>
     </form>
   </ion-navbar>
@@ -19,8 +19,7 @@
           type="text"
           name="title"
           maxlength="30"
-          required
-          ngModel></ion-input>
+          ngModel required></ion-input>
       </ion-item>
       <ion-item>
         <ion-label>Manager :</ion-label>
@@ -29,8 +28,7 @@
           type="text"
           name="manager"
           maxlength="30"
-          required
-          ngModel></ion-input>
+          ngModel required></ion-input>
       </ion-item>
       <ion-item>
         <ion-label floating>Description : </ion-label>
@@ -39,8 +37,7 @@
           autosize
           name="description"
           maxlength="200"
-          required
-          ngModel></ion-textarea>
+          ngModel required></ion-textarea>
       </ion-item>
       <ion-item>
         <ion-label>Due Date :</ion-label>
@@ -55,12 +52,13 @@
       <ion-item>
         <ion-label>Priority :</ion-label>
         <ion-input
-        text-left
-        type="tel"
-        name="priority"
-        pattern="[0-3]"
-        ngModel
-        required></ion-input>
+          type ="tel"
+          min="1"
+          max="3"
+          maxlength="1"
+          pattern="[123]"
+          name="priority"
+          ngModel required></ion-input>
       </ion-item>
       <ion-col>
         <button
@@ -69,11 +67,26 @@
           outline
           type="button"
           icon-left
-          (click)="onSelectSite()">
+          (click)="onOpenMap()">
           <ion-icon name="map"></ion-icon>
           Add Site
         </button>
       </ion-col>
     </ion-list>
+      <ion-grid>
+        <ion-row *ngIf="siteIsSet">
+          <ion-col>
+            <agm-map
+              [latitude]="site.lat"
+              [longitude]="site.lng"
+              [zoom]="16">
+              <agm-marker
+                [latitude]="site.lat"
+                [longitude]="site.lng">
+              </agm-marker>
+            </agm-map>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
   </form>
 </ion-content>

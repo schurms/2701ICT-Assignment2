@@ -2,10 +2,10 @@
   <ion-navbar>
     <ion-title>Site Location</ion-title>
     <ion-buttons left>
-      <button ion-button type="submit" (click)="onConfirm()">Cancel</button>
+      <button ion-button type="submit" (click)="onCancel()">Cancel</button>
     </ion-buttons>
     <ion-buttons right>
-      <button ion-button type="submit" (click)="onConfirm()">Save</button>
+      <button ion-button type="submit" (click)="onConfirm()" [disabled]="!marker">Confirm</button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
@@ -15,9 +15,14 @@
     <ion-row>
       <ion-col>
         <agm-map
-          [latitude]="-27.5550897"
-          [longitude]="153.0532585"
-          [zoom]="16">
+          [latitude]="site.lat"
+          [longitude]="site.lng"
+          [zoom]="16"
+          (mapClick)="onSetMarker($event)">
+          <agm-marker
+            [latitude]="marker.lat"
+            [longitude]="marker.lng"
+            *ngIf="marker"></agm-marker>
         </agm-map>
       </ion-col>
     </ion-row>

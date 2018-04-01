@@ -69,6 +69,33 @@
           name="done"
           [ngModel]="project.done"></ion-checkbox>
       </ion-item>
+      <ion-col>
+        <button
+          ion-button
+          block
+          outline
+          type="button"
+          icon-left
+          (click)="onOpenMap()">
+          <ion-icon name="map"></ion-icon>
+          Edit Site
+        </button>
+      </ion-col>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <agm-map
+              [latitude]="project.site.lat"
+              [longitude]="project.site.lng"
+              [zoom]="16">
+              <agm-marker
+                [latitude]="project.site.lat"
+                [longitude]="project.site.lng">
+              </agm-marker>
+            </agm-map>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     </ion-list>
   </form>
 </ion-content>

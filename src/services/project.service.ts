@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Storage } from "@ionic/storage";
+import { reorderArray } from 'ionic-angular';
 
 import { Project } from '../models/project.model';
-import { reorderArray } from 'ionic-angular';
+import { Site } from '../models/site.model';
 
 @Injectable()
 export class ProjectService {
@@ -16,8 +17,9 @@ export class ProjectService {
                 description: string,
                 dueDate: Date,
                 priority: number,
-                done: boolean) {
-    const project = new Project(title, manager, description, dueDate, priority, done);
+                done: boolean,
+                site: Site) {
+    const project = new Project(title, manager, description, dueDate, priority, done, site);
     this.projects.push(project);
     this.storage.set('projects', this.projects)
       .then()
@@ -49,13 +51,16 @@ export class ProjectService {
 
   // Fetch projects from local storage.
   fetchProjects() {
-    this.storage.get('projects')
+    return this.storage.get('projects')
       .then(
         (projects: Project[]) => {
           this.projects = projects != null ? projects : [];
+          return this.projects;
         }
       )
-      .catch();
+      .catch(
+        err => console.log(err)
+      );
   }
 
   // Update the project in the Array.  Update local storage.
@@ -65,8 +70,9 @@ export class ProjectService {
                 description: string,
                 dueDate: Date,
                 priority: number,
-                done: boolean) {
-    const project = new Project(title, manager, description, dueDate, priority, done);
+                done: boolean,
+                site: Site) {
+    const project = new Project(title, manager, description, dueDate, priority, done, site);
     this.projects[index] = project;
     this.storage.set('projects', this.projects)
       .then()

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { ViewController } from 'ionic-angular';
+import { NavParams, ViewController } from 'ionic-angular';
+import { Site } from '../../models/site.model';
 
 @Component({
   selector: 'page-site-location',
@@ -7,13 +8,25 @@ import { ViewController } from 'ionic-angular';
 })
 export class SiteLocationPage {
 
-  constructor(private viewCtrl: ViewController) {
+  site: Site;
+  marker: Site;
 
+  constructor(private navParams: NavParams,
+              private viewCtrl: ViewController) {
+    this.site = this.navParams.get('site');
+    if (this.navParams.get('isSet')) {
+      this.marker = this.site;
+    }
+  }
+
+  // Listen for marker being placed
+  onSetMarker(event: any) {
+    this.marker = new Site(event.coords.lat, event.coords.lng);
   }
 
   // Confirm selection of Site
   onConfirm() {
-    this.viewCtrl.dismiss();
+    this.viewCtrl.dismiss({site: this.marker});
   }
 
   // Cancel action
