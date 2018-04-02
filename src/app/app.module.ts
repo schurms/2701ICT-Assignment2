@@ -45,7 +45,7 @@ import { AgmCoreModule } from '@agm/core';
     IonicStorageModule.forRoot(),
     IonicModule.forRoot(MyApp),
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyCwZM5qV8ZoprKwcriJRy6-X-IhIm4LR9U'
+      apiKey: 'AIzaSyDSKm2QcBJ8DmXNE9LFayjkUpUJmAC33xc'
     }),
     ChartsModule
   ],

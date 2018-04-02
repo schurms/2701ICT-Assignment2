@@ -48,9 +48,6 @@ export class EditProjectPage {
 
     form.reset();
 
-
-
-
     this.navCtrl.popToRoot();
   }
 
