@@ -11,7 +11,7 @@ export class ProjectService {
 
   constructor(private storage: Storage) {}
 
-  // Add a new project to the Array. Update local storage.
+  // Add a new project to the Array. Update local storage. If error adding to storage remove from array
   createProject(title: string,
                 manager: string,
                 description: string,
@@ -20,11 +20,14 @@ export class ProjectService {
                 done: boolean,
                 site: Site) {
     const project = new Project(title, manager, description, dueDate, priority, done, site);
+    // Add to array
     this.projects.push(project);
+    // Add to Local storage
     this.storage.set('projects', this.projects)
       .then()
       .catch(
         err => {
+          // If error adding to Local storage remove from Array
           this.projects.splice(this.projects.indexOf(project), 1);
         }
       );
@@ -35,7 +38,7 @@ export class ProjectService {
     return this.projects;
   }
 
-  // Get project metrics
+  // Get project metrics - Count done and not done projects
   countProjects() {
     let notDoneProjects = 0;
     let doneProjects = 0;
@@ -49,7 +52,7 @@ export class ProjectService {
     return [notDoneProjects, doneProjects];
   }
 
-  // Fetch projects from local storage.
+  // Fetch projects from local storage.  If not null return projects otherwise return empty array
   fetchProjects() {
     return this.storage.get('projects')
       .then(
@@ -73,26 +76,38 @@ export class ProjectService {
                 done: boolean,
                 site: Site) {
     const project = new Project(title, manager, description, dueDate, priority, done, site);
+    // Update array
     this.projects[index] = project;
+    // Update local storage
     this.storage.set('projects', this.projects)
       .then()
-      .catch();
+      .catch(
+        err => console.log(err)
+      );
   }
 
   // Delete the project from the Array. Update local storage.
   deleteProject(index: number) {
+    // Delete from array
     this.projects.splice(index, 1);
+    // Delete from local storage
     this.storage.set('projects', this.projects)
       .then()
-      .catch();
+      .catch(
+        err => console.log(err)
+      );
   }
 
-  // Reorder the projects in the Array. Update local storage.
+  // Reorder the projects in the Array. Update local storage to new position.
   reorderArray(indexes) {
+    // Reorder array
     this.projects = reorderArray(this.projects, indexes);
+    // Update array indexes in local storage
     this.storage.set('projects', this.projects)
       .then()
-      .catch();
+      .catch(
+        err => console.log(err)
+      );
   }
 
 }
