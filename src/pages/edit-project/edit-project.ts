@@ -52,7 +52,7 @@ export class EditProjectPage {
   }
 
   // Open the Select Site Page
-  onOpenMap() {
+  onSelectSite() {
     const modal = this.modalCtrl.create(SiteLocationPage,
       {site: this.project.site, isSet: this.siteIsSet});
     modal.present();

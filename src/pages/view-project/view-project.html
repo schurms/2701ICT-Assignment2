@@ -11,24 +11,29 @@
         <h2>{{ project.title }}</h2>
       </ion-col>
     </ion-row>
-    <ion-row>
-      <p><strong>Project Manager:</strong> {{ project.manager }}</p>
-    </ion-row>
-    <ion-row>
-      <p><strong>Description:</strong> {{ project.description }}</p>
-    </ion-row>
-    <ion-row>
-        <p><strong>Due Date:</strong> {{ project.dueDate | date: 'dd/MMM/yyyy' }}</p>
-    </ion-row>
-    <ion-row>
-      <p><strong>Priority:</strong> {{ project.priority }}</p>
-    </ion-row>
-    <ion-row>
-      <p *ngIf="project.done; else notDone"><b>Completed:</b> Yes</p>
-        <ng-template #notDone>
-          <p><strong>Completed:</strong> No</p>
-        </ng-template>
-    </ion-row>
+    <div id="projectContainer">
+      <h6>Project Manager:</h6><p> {{ project.manager }}</p>
+    </div>
+    <br>
+    <div id="projectContainer">
+      <h6>Project Description:</h6><p> {{ project.description }}</p>
+    </div>
+    <br>
+    <div id="projectContainer">
+      <h6>Due Date:</h6><p> {{ project.dueDate | date: 'dd/MMM/yyyy' }}</p>
+    </div>
+    <br>
+    <div id="projectContainer">
+      <h6>Priority:</h6><p> {{ project.priority }}</p>
+    </div>
+    <br>
+    <div id="projectContainer">
+      <span *ngIf="project.done; else notDone"><h6>Completed:</h6><p> Yes</p></span>
+      <ng-template #notDone>
+        <h6>Completed:</h6><p> No</p>
+      </ng-template>
+    </div>
+    <br>
     <ion-row>
       <ion-col>
         <agm-map

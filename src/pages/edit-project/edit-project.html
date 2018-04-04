@@ -56,9 +56,13 @@
         <ion-label>Priority :</ion-label>
         <ion-input
           text-left
-          type="tel"
+          type ="tel"
+          min="1"
+          max="9"
+          minlength="1"
+          maxlength="1"
+          pattern="[123456789]"
           name="priority"
-          pattern="[0-3]"
           required
           [ngModel]="project.priority"></ion-input>
       </ion-item>
@@ -76,7 +80,7 @@
           outline
           type="button"
           icon-left
-          (click)="onOpenMap()">
+          (click)="onSelectSite()">
           <ion-icon name="map"></ion-icon>
           Edit Site
         </button>

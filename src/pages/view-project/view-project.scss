@@ -1,9 +1,16 @@
 page-view-project {
-  .subtitle {
-    text-transform: uppercase;
-  }
 
   agm-map {
-    height: 250px;
+    height: 200px;
+  }
+
+  #projectContainer h6,
+  #projectContainer p {
+    display: inline;
+    vertical-align: center;
+  }
+
+  h6 {
+    font-size: 15px;
   }
 }
