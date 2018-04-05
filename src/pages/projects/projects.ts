@@ -37,7 +37,6 @@ export class ProjectsPage {
   }
 
   reorderItems(indexes) {
-    // this.projects = reorderArray(this.projects, indexes);
    this.projectService.reorderArray(indexes);
   }
 
