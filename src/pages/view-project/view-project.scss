@@ -13,4 +13,20 @@ page-view-project {
   h6 {
     font-size: 15px;
   }
+
+  .action-sheets-basic-page {
+
+    .EditIcon {
+      ion-icon {
+        color: #32db64;
+      }
+    }
+
+    .action-sheet-cancel ion-icon,
+    .action-sheet-destructive ion-icon {
+      color: #757575;
+    }
+
+  }
+
 }
