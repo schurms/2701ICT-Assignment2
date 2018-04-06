@@ -1,3 +1,8 @@
+/**
+ * This service handles all data create / read / update / delete activities
+ *
+ */
+
 import { Injectable } from '@angular/core';
 import { Storage } from "@ionic/storage";
 import { reorderArray } from 'ionic-angular';
@@ -7,11 +12,25 @@ import { Site } from '../models/site.model';
 
 @Injectable()
 export class ProjectService {
+
+  /**
+   * Define new project object
+   * @type {any[]}
+   */
   private projects: Project[] = [];
 
   constructor(private storage: Storage) {}
 
-  // Add a new project to the Array. Update local storage. If error adding to storage remove from array
+  /**
+   * Add a new project to the Array. Update local storage. If error adding to storage remove from array
+   * @param {string} title
+   * @param {string} manager
+   * @param {string} description
+   * @param {Date} dueDate
+   * @param {number} priority
+   * @param {boolean} done
+   * @param {Site} site
+   */
   createProject(title: string,
                 manager: string,
                 description: string,
@@ -33,12 +52,18 @@ export class ProjectService {
       );
   }
 
-  // Read all projects
+  /**
+   * Read the project data and return the list of projects
+   * @returns {Project[]}
+   */
   readProjects() {
     return this.projects;
   }
 
-  // Get project metrics - Count done and not done projects
+  /**
+   * Get the data required for the project metrics page - Count of done and not done projects
+   * @returns {number[]}
+   */
   countProjects() {
     let notDoneProjects = 0;
     let doneProjects = 0;
@@ -52,8 +77,11 @@ export class ProjectService {
     return [notDoneProjects, doneProjects];
   }
 
-  // Fetch projects from local storage.  If not null return projects otherwise return empty array
-  fetchProjects() {
+  /**
+   * Load projects from local storage.  If not null return projects otherwise return empty array
+   * @returns {Promise<Project[] | void>}
+   */
+  loadProjects() {
     return this.storage.get('projects')
       .then(
         (projects: Project[]) => {
@@ -66,7 +94,17 @@ export class ProjectService {
       );
   }
 
-  // Update the project in the Array.  Update local storage.
+  /**
+   * Update the project in the Array. Update local storage.
+   * @param {number} index
+   * @param {string} title
+   * @param {string} manager
+   * @param {string} description
+   * @param {Date} dueDate
+   * @param {number} priority
+   * @param {boolean} done
+   * @param {Site} site
+   */
   updateProject(index: number,
                 title: string,
                 manager: string,
@@ -86,7 +124,10 @@ export class ProjectService {
       );
   }
 
-  // Delete the project from the Array. Update local storage.
+  /**
+   * Delete the project from the Array.  Update local storage.
+   * @param {number} index
+   */
   deleteProject(index: number) {
     // Delete from array
     this.projects.splice(index, 1);
@@ -98,7 +139,10 @@ export class ProjectService {
       );
   }
 
-  // Reorder the projects in the Array. Update local storage to new position.
+  /**
+   * Reorder the projects in the Array.  Update local storage to reflect the new positions.
+   * @param indexes
+   */
   reorderArray(indexes) {
     // Reorder array
     this.projects = reorderArray(this.projects, indexes);

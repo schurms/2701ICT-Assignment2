@@ -18,7 +18,9 @@ export class ViewFaqPage {
     this.faq = this.navParams.get('faq');
   }
 
-  // Dismiss the page and return to the FAQs Page
+  /**
+   * Dismiss the page and return to the FAQs Page
+   */
   closeFaq() {
     this.viewCrtl.dismiss();
   }

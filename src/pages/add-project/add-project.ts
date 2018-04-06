@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ModalController, NavController, ViewController } from 'ionic-angular';
+import { MenuController, ModalController, NavController, ViewController } from 'ionic-angular';
 
 import { SiteLocationPage } from '../site-location/site-location';
 import { Site } from '../../models/site.model';
@@ -11,9 +11,10 @@ import { ProjectService } from '../../services/project.service';
   templateUrl: 'add-project.html'
 })
 export class AddProjectPage {
+  // Provide initial latitude/longitude values
   site: Site = {
-    lat: -27.5550897,
-    lng: 153.0532585
+    latitude: -27.5550897,
+    longitude: 153.0532585
   };
 
   siteIsSet = false;
@@ -21,15 +22,35 @@ export class AddProjectPage {
   constructor (private projectService: ProjectService,
                private navCtrl: NavController,
                private viewCtrl: ViewController,
-               private modalCtrl: ModalController) {
+               private modalCtrl: ModalController,
+               private menuCtrl: MenuController) {
   }
 
-  // Set the cancel button on load
+  /**
+   * Set the cancel button on load
+   */
   ionViewDidLoad() {
     this.viewCtrl.setBackButtonText('Cancel');
   }
 
-  // Save the new project details and reset the site to Griffith
+  /**
+   * Disable the Swipe Menu on Entering the Welcome Screen
+   */
+  ionViewDidEnter() {
+    this.menuCtrl.swipeEnable(false);
+  }
+
+  /**
+   * Enable the Swipe Menu on Leaving the Welcome Screen
+   */
+  ionViewWillLeave() {
+    this.menuCtrl.swipeEnable(true);
+  }
+
+  /**
+   * Save the new project details and reset the site to Griffith Uni
+   * @param {NgForm} form
+   */
   onSubmit(form: NgForm) {
     this.projectService.createProject(
       form.value.title,
@@ -43,14 +64,16 @@ export class AddProjectPage {
     form.reset();
 
     this.site = {
-      lat: -27.5550897,
-      lng: 153.0532585
+      latitude: -27.5550897,
+      longitude: 153.0532585
     };
 
     this.navCtrl.popToRoot();
   }
 
-  // Open the Select Site Page
+  /**
+   * Open the Select Site Page
+   */
   onSelectSite() {
     const modal = this.modalCtrl.create(SiteLocationPage,
       {site: this.site, isSet: this.siteIsSet});

@@ -1,5 +1,10 @@
+/**
+ * This data model defines the structure of the Site class
+ * The Site class is included within the Project class
+ *
+ */
 export class Site {
   constructor(
-    public lat: number,
-    public lng: number) {}
+    public latitude: number,
+    public longitude: number) {}
 }

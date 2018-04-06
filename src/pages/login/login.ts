@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LoadingController, NavController, NavParams } from 'ionic-angular';
+import { LoadingController, MenuController, NavController, NavParams } from 'ionic-angular';
 import { NgForm } from '@angular/forms';
 import { TabsPage } from '../tabs/tabs';
 
@@ -14,18 +14,37 @@ export class LoginPage {
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              private loadingCtrl: LoadingController) {
+              private loadingCtrl: LoadingController,
+              private menuCtrl: MenuController) {
   }
 
-  // Accept input and Log the user on
+  /**
+   * Disable the Swipe Menu on Entering the Welcome Screen
+   */
+  ionViewDidEnter() {
+    this.menuCtrl.swipeEnable(false);
+  }
+
+  /**
+   * Enable the Swipe Menu on Leaving the Welcome Screen
+   */
+  ionViewWillLeave() {
+    this.menuCtrl.swipeEnable(true);
+  }
+
+  /**
+   * Accept input and Log the user on
+   * @param {NgForm} form
+   */
   onLogin(form: NgForm) {
     const loading = this.loadingCtrl.create({
       content: 'Logging you in...'
     });
     loading.present();
 
-
-    // Timeout Loading Controller
+    /**
+     * Timeout Loading Controller
+     */
     setTimeout(() => {
       loading.dismiss();
       this.navCtrl.push(TabsPage);

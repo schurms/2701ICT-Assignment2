@@ -19,17 +19,24 @@ export class SiteLocationPage {
     }
   }
 
-  // Listen for marker being placed
+  /**
+   * Listen for marker being placed
+   * @param event
+   */
   onSetMarker(event: any) {
-    this.marker = new Site(event.coords.lat, event.coords.lng);
+    this.marker = new Site(event.coords.latitude, event.coords.longitude);
   }
 
-  // Confirm selection of Site
+  /**
+   * Confirm selection of the Site
+   */
   onConfirm() {
     this.viewCtrl.dismiss({site: this.marker});
   }
 
-  // Cancel action
+  /**
+   * Cancel the Action
+   */
   onCancel() {
     this.viewCtrl.dismiss();
   }

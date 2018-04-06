@@ -1,5 +1,12 @@
 import { Component } from '@angular/core';
-import {ActionSheetController, AlertController, NavController, NavParams, Platform} from 'ionic-angular';
+import {
+  ActionSheetController,
+  AlertController,
+  MenuController,
+  NavController,
+  NavParams,
+  Platform
+} from 'ionic-angular';
 import { Project } from '../../models/project.model';
 import { ProjectService } from '../../services/project.service';
 import { EditProjectPage } from '../edit-project/edit-project';
@@ -17,18 +24,40 @@ export class ViewProjectPage{
               public navParams: NavParams,
               private projectService: ProjectService,
               private alertCtrl: AlertController,
+              private menuCtrl: MenuController,
               private actionsheetCtrl: ActionSheetController,
               public platform: Platform) {
 
+    // Get Project data from the Project Page
     this.project = this.navParams.get('project');
     this.index = this.navParams.get('index');
 
   }
 
+  /**
+   * Disable the Swipe Menu on Entering the Welcome Screen
+   */
+  ionViewDidEnter() {
+    this.menuCtrl.swipeEnable(false);
+  }
+
+  /**
+   * Enable the Swipe Menu on Leaving the Welcome Screen
+   */
+  ionViewWillLeave() {
+    this.menuCtrl.swipeEnable(true);
+  }
+
+  /**
+   * Navigate the user to the Edit Project Page
+   */
   onEditProject() {
     this.navCtrl.push(EditProjectPage, {project: this.project, index: this.index});
   }
 
+  /**
+   * Manage deletion of the Project Record
+   */
   onDeleteProject() {
     let alert = this.alertCtrl.create({
       title: 'Project Deletion!',
@@ -49,6 +78,9 @@ export class ViewProjectPage{
     alert.present();
   }
 
+  /**
+   * Displays the action sheet options
+   */
   openMenu() {
     let actionSheet = this.actionsheetCtrl.create({
       title: 'Select Action',
@@ -57,7 +89,7 @@ export class ViewProjectPage{
         {
           text: 'Delete Project',
           icon: 'trash',
-          role: 'destructive',
+          role: 'destructive', // Destructive will always sort to be on the top
           handler: () => {
             this.onDeleteProject();
           }
@@ -65,22 +97,18 @@ export class ViewProjectPage{
         {
           text: 'Edit Project',
           icon: 'create',
-          cssClass: 'EditIcon',
           handler: () => {
             this.onEditProject();
           }
         },
         {
           text: 'Cancel',
-          role: 'cancel', // will always sort to be on the bottom
-          handler: () => {
-            console.log('Cancel clicked');
-          }
+          role: 'cancel', // Cancel will always sort to be on the bottom
+          handler: () => { }
         }
       ]
     });
     actionSheet.present();
   }
-
 
 }

@@ -13,10 +13,12 @@ export class Autosize implements OnInit {
   constructor(public element:ElementRef) {
   }
 
+  // on calling class set the timeout for the textarea adjustment to zero
   ngOnInit():void {
     setTimeout(() => this.adjust(), 0);
   }
 
+  // Set the textarea styling
   adjust():void {
     let textArea = this.element.nativeElement.getElementsByTagName('textarea')[0];
     textArea.style.overflow = 'hidden';

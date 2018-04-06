@@ -44,6 +44,9 @@ export class MetricsPage {
     ];
   }
 
+  /**
+   * Display the charts on opening the page
+   */
   ionViewDidEnter() {
     this.metrics = this.projectService.countProjects();
     this.numNotDone = this.metrics[0];

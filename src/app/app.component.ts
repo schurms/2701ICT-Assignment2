@@ -28,11 +28,16 @@ export class MyApp implements OnInit {
     });
   }
 
-  // Load projects from local storage ready to process
+  /**
+   * Load projects from local storage ready to process
+   */
   ngOnInit() {
-    this.projectService.fetchProjects();
+    this.projectService.loadProjects();
   }
-
+  
+  /**
+   * On pressing the logout button close the menu and pop to the Welcome Page
+   */
   onLogout() {
     this.menuCtrl.close();
     this.navCtrl.popToRoot();

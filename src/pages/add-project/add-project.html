@@ -53,8 +53,6 @@
         <ion-label>Priority :</ion-label>
         <ion-input
           type ="tel"
-          min="1"
-          max="9"
           minlength="1"
           maxlength="1"
           pattern="[123456789]"
@@ -78,12 +76,12 @@
         <ion-row *ngIf="siteIsSet">
           <ion-col>
             <agm-map
-              [latitude]="site.lat"
-              [longitude]="site.lng"
+              [latitude]="site.latitude"
+              [longitude]="site.longitude"
               [zoom]="16">
               <agm-marker
-                [latitude]="site.lat"
-                [longitude]="site.lng">
+                [latitude]="site.latitude"
+                [longitude]="site.longitude">
               </agm-marker>
             </agm-map>
           </ion-col>

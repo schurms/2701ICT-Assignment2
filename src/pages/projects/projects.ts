@@ -24,26 +24,50 @@ export class ProjectsPage {
 
   }
 
+  /**
+   * On entering the view load the projects that have already been retrieved from local storage
+   */
   ionViewWillEnter() {
     this.projects = this.projectService.readProjects();
   }
 
+  /**
+   * Navigate to the AddProjectPage when the new button is pressed
+   */
   onNewProject() {
     this.navCtrl.push(AddProjectPage);
   }
 
+  /**
+   * Navigate to the ViewProjectPage when the cell is tapped.  Sent cell index
+   * @param {Project} project
+   * @param {number} index
+   */
   onLoadProject(project: Project, index: number) {
     this.navCtrl.push(ViewProjectPage, {project: project, index: index});
   }
 
+  /**
+   * Reorder the array and save the new order to local storage.
+   * @param indexes
+   */
   reorderItems(indexes) {
    this.projectService.reorderArray(indexes);
   }
 
+  /**
+   * Navigate to the EditProjectPage on swiping and tapping on the edit icon
+   * @param {Project} project
+   * @param {number} index
+   */
   onEditProject(project: Project, index: number) {
     this.navCtrl.push(EditProjectPage, {project: project, index: index});
   }
 
+  /**
+   * Delete the project at the index.  Show a confirmation message
+   * @param {number} index
+   */
   onDeleteProject(index: number) {
     let alert = this.alertCtrl.create({
       title: 'Project Deletion!',
