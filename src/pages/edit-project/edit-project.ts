@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import {MenuController, ModalController, NavController, NavParams, ViewController} from 'ionic-angular';
+import { ModalController, NavController, NavParams, ViewController} from 'ionic-angular';
 
 import { SiteLocationPage } from '../site-location/site-location';
+
 import { Site } from '../../models/site.model';
 import { Project } from '../../models/project.model';
 import { ProjectService } from '../../services/project.service';
@@ -22,8 +23,7 @@ export class EditProjectPage {
                private projectService: ProjectService,
                private navCtrl: NavController,
                private viewCtrl: ViewController,
-               private modalCtrl: ModalController,
-               private menuCtrl: MenuController) {
+               private modalCtrl: ModalController) {
 
     this.project = this.navParams.get('project');
     this.index = this.navParams.get('index');
@@ -34,20 +34,6 @@ export class EditProjectPage {
    */
   ionViewDidLoad() {
     this.viewCtrl.setBackButtonText('Cancel');
-  }
-
-  /**
-   * Disable the Swipe Menu on Entering the Welcome Screen
-   */
-  ionViewDidEnter() {
-    this.menuCtrl.swipeEnable(false);
-  }
-
-  /**
-   * Enable the Swipe Menu on Leaving the Welcome Screen
-   */
-  ionViewWillLeave() {
-    this.menuCtrl.swipeEnable(true);
   }
 
   /**

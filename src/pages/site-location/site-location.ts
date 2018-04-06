@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavParams, ViewController } from 'ionic-angular';
+
 import { Site } from '../../models/site.model';
 
 @Component({

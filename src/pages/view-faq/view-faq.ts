@@ -1,10 +1,7 @@
 import { Component } from '@angular/core';
-import { NavParams, ViewController} from 'ionic-angular';
+import { NavParams, ViewController } from 'ionic-angular';
 
-export interface Faq {
-  name: string;
-  description: string;
-}
+import {Faq } from '../../models/faq.model';
 
 @Component({
   selector: 'page-view-faq',
@@ -14,7 +11,8 @@ export class ViewFaqPage {
 
   faq: Faq;
 
-  constructor(public navParams: NavParams, public viewCrtl: ViewController ) {
+  constructor(public navParams: NavParams,
+              public viewCrtl: ViewController ) {
     this.faq = this.navParams.get('faq');
   }
 

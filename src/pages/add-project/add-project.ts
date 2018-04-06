@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { MenuController, ModalController, NavController, ViewController } from 'ionic-angular';
+import { ModalController, NavController, ViewController } from 'ionic-angular';
 
 import { SiteLocationPage } from '../site-location/site-location';
+
 import { Site } from '../../models/site.model';
 import { ProjectService } from '../../services/project.service';
 
@@ -22,8 +23,7 @@ export class AddProjectPage {
   constructor (private projectService: ProjectService,
                private navCtrl: NavController,
                private viewCtrl: ViewController,
-               private modalCtrl: ModalController,
-               private menuCtrl: MenuController) {
+               private modalCtrl: ModalController) {
   }
 
   /**
@@ -33,19 +33,6 @@ export class AddProjectPage {
     this.viewCtrl.setBackButtonText('Cancel');
   }
 
-  /**
-   * Disable the Swipe Menu on Entering the Welcome Screen
-   */
-  ionViewDidEnter() {
-    this.menuCtrl.swipeEnable(false);
-  }
-
-  /**
-   * Enable the Swipe Menu on Leaving the Welcome Screen
-   */
-  ionViewWillLeave() {
-    this.menuCtrl.swipeEnable(true);
-  }
 
   /**
    * Save the new project details and reset the site to Griffith Uni

@@ -1,14 +1,9 @@
 import { Component } from '@angular/core';
-import {
-  ActionSheetController,
-  AlertController,
-  MenuController,
-  NavController,
-  NavParams,
-  Platform
-} from 'ionic-angular';
+import { ActionSheetController, AlertController, NavController, NavParams } from 'ionic-angular';
+
 import { Project } from '../../models/project.model';
 import { ProjectService } from '../../services/project.service';
+
 import { EditProjectPage } from '../edit-project/edit-project';
 
 @Component({
@@ -24,28 +19,12 @@ export class ViewProjectPage{
               public navParams: NavParams,
               private projectService: ProjectService,
               private alertCtrl: AlertController,
-              private menuCtrl: MenuController,
-              private actionsheetCtrl: ActionSheetController,
-              public platform: Platform) {
+              private actionsheetCtrl: ActionSheetController) {
 
     // Get Project data from the Project Page
     this.project = this.navParams.get('project');
     this.index = this.navParams.get('index');
 
-  }
-
-  /**
-   * Disable the Swipe Menu on Entering the Welcome Screen
-   */
-  ionViewDidEnter() {
-    this.menuCtrl.swipeEnable(false);
-  }
-
-  /**
-   * Enable the Swipe Menu on Leaving the Welcome Screen
-   */
-  ionViewWillLeave() {
-    this.menuCtrl.swipeEnable(true);
   }
 
   /**

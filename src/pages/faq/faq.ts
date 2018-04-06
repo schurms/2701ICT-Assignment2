@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { ModalController } from 'ionic-angular';
-import { ViewFaqPage } from '../view-faq/view-faq';
-import {Faq} from '../../models/faq.model';
 
+import { ViewFaqPage } from '../view-faq/view-faq';
+
+import { Faq } from '../../models/faq.model';
 
 @Component({
   selector: 'page-faq',
