@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { MenuController, NavController, NavParams } from 'ionic-angular';
 
 import { LoginPage } from '../login/login';
 
@@ -9,7 +9,16 @@ import { LoginPage } from '../login/login';
 })
 export class WelcomePage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              private menuCtrl: MenuController) {
+  }
+
+  /**
+   * Disable the Swipe Menu on Entering the Welcome Screen
+   */
+  ionViewDidEnter() {
+    this.menuCtrl.swipeEnable(false);
   }
 
   /**
