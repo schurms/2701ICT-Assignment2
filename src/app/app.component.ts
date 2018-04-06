@@ -36,6 +36,14 @@ export class MyApp implements OnInit {
   }
 
   /**
+   * Disable the Swipe Menu on Entering the Welcome Screen
+   */
+  ionViewDidEnter() {
+    this.menuCtrl.swipeEnable(false);
+  }
+
+
+  /**
    * On pressing the logout button close the menu and pop to the Welcome Page
    */
   onLogout() {
