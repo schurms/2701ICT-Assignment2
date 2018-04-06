@@ -28,7 +28,6 @@ export class WelcomePage {
     this.menuCtrl.swipeEnable(true);
   }
 
-  // Navigate the User to the Login Page on Pressing Enter
   /**
    * Navigate the user to the Login Page on pressing enter.
    */

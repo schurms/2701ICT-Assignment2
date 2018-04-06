@@ -34,7 +34,7 @@ export class MyApp implements OnInit {
   ngOnInit() {
     this.projectService.loadProjects();
   }
-  
+
   /**
    * On pressing the logout button close the menu and pop to the Welcome Page
    */
