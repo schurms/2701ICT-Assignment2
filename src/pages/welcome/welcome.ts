@@ -20,14 +20,7 @@ export class WelcomePage {
   ionViewDidEnter() {
     this.menuCtrl.swipeEnable(false);
   }
-
-  /**
-   * Enable the Swipe Menu on Leaving the Welcome Screen
-   */
-  ionViewWillLeave() {
-    this.menuCtrl.swipeEnable(true);
-  }
-
+  
   /**
    * Navigate the user to the Login Page on pressing enter.
    */
