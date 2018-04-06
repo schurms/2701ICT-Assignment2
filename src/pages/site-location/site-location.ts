@@ -21,11 +21,11 @@ export class SiteLocationPage {
   }
 
   /**
-   * Listen for marker being placed
+   * Listen for marker being placed (must be .lat and .lng)
    * @param event
    */
   onSetMarker(event: any) {
-    this.marker = new Site(event.coords.latitude, event.coords.longitude);
+    this.marker = new Site(event.coords.lat, event.coords.lng);
   }
 
   /**

@@ -65,6 +65,7 @@ export class AddProjectPage {
     const modal = this.modalCtrl.create(SiteLocationPage,
       {site: this.site, isSet: this.siteIsSet});
     modal.present();
+    // if returning and a site was selected set data
     modal.onDidDismiss(
       data => {
         if (data) {
