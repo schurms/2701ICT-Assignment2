@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LoadingController, NavController } from 'ionic-angular';
+import { LoadingController, MenuController, NavController } from 'ionic-angular';
 import { NgForm } from '@angular/forms';
 
 import { TabsPage } from '../tabs/tabs';
@@ -14,10 +14,16 @@ export class LoginPage {
   password: string;
 
   constructor(public navCtrl: NavController,
-              private loadingCtrl: LoadingController) {
+              private loadingCtrl: LoadingController,
+              private menuCtrl: MenuController) {
   }
 
-  ToDoo
+  /**
+   * Disable the Swipe Menu on Entering the Welcome Screen
+   */
+  ionViewDidEnter() {
+    this.menuCtrl.swipeEnable(false);
+  }
 
   /**
    * Accept input and Log the user on
