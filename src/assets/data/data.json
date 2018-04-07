@@ -1,0 +1,16 @@
+{
+  "fags": [{
+    "name": "Burt Bear",
+    "description": "blah blah",
+    "id": "1"
+  }, {
+    "name": "Charlie Cheetah",
+    "description": "blah blah",
+    "id": "2"
+  }, {
+    "name": "Donald Duck",
+    "description": "blah blah",
+    "id": "3"
+  }]
+
+}
