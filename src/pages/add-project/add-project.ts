@@ -32,8 +32,7 @@ export class AddProjectPage {
   ionViewDidLoad() {
     this.viewCtrl.setBackButtonText('Cancel');
   }
-
-
+  
   /**
    * Save the new project details and reset the site to Griffith Uni
    * @param {NgForm} form
