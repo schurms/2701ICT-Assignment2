@@ -1,5 +1,12 @@
 page-login {
 
+  .logo {
+    width: 80px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .scroll-content {
     align-content: center;
     display: flex;
@@ -17,7 +24,6 @@ page-login {
   h1, h3 {
     color: white!important;
   }
-
 
   a, p,
   ion-card-header.card-header {
