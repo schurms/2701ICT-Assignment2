@@ -8,7 +8,6 @@ import { Storage } from "@ionic/storage";
 import { reorderArray } from 'ionic-angular';
 
 import { Project } from '../models/project.model';
-import { Site } from '../models/site.model';
 
 @Injectable()
 export class ProjectService {
@@ -29,7 +28,8 @@ export class ProjectService {
    * @param {Date} dueDate
    * @param {number} priority
    * @param {boolean} done
-   * @param {Site} site
+   * @param {number} latitude
+   * @param {number} longitude
    */
   createProject(title: string,
                 manager: string,
@@ -37,8 +37,9 @@ export class ProjectService {
                 dueDate: Date,
                 priority: number,
                 done: boolean,
-                site: Site) {
-    const project = new Project(title, manager, description, dueDate, priority, done, site);
+                latitude: number,
+                longitude: number) {
+    const project = new Project(title, manager, description, dueDate, priority, done, latitude, longitude);
     // Add to array
     this.projects.push(project);
     // Add to Local storage
@@ -103,7 +104,8 @@ export class ProjectService {
    * @param {Date} dueDate
    * @param {number} priority
    * @param {boolean} done
-   * @param {Site} site
+   * @param {number} latitude
+   * @param {number} longitude
    */
   updateProject(index: number,
                 title: string,
@@ -112,8 +114,9 @@ export class ProjectService {
                 dueDate: Date,
                 priority: number,
                 done: boolean,
-                site: Site) {
-    const project = new Project(title, manager, description, dueDate, priority, done, site);
+                latitude: number,
+                longitude: number) {
+    const project = new Project(title, manager, description, dueDate, priority, done, latitude, longitude);
     // Update array
     this.projects[index] = project;
     // Update local storage

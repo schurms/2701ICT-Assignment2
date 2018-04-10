@@ -4,7 +4,6 @@ import { ModalController, NavController, NavParams, ViewController} from 'ionic-
 
 import { SiteLocationPage } from '../site-location/site-location';
 
-import { Site } from '../../models/site.model';
 import { Project } from '../../models/project.model';
 import { ProjectService } from '../../services/project.service';
 
@@ -13,9 +12,10 @@ import { ProjectService } from '../../services/project.service';
   templateUrl: 'edit-project.html'
 })
 export class EditProjectPage {
-  site: Site;
+  latitude: number;
+  longitude: number;
 
-  siteIsSet = true;
+  locationSet = true;
   project: Project;
   index: number;
 
@@ -27,6 +27,9 @@ export class EditProjectPage {
 
     this.project = this.navParams.get('project');
     this.index = this.navParams.get('index');
+
+    this.latitude = this.project.latitude;
+    this.longitude = this.project.longitude;
   }
 
   /**
@@ -49,7 +52,8 @@ export class EditProjectPage {
       form.value.dueDate,
       form.value.priority,
       form.value.done,
-      this.project.site);
+      this.latitude,
+      this.longitude);
 
     form.reset();
 
@@ -61,13 +65,14 @@ export class EditProjectPage {
    */
   onSelectSite() {
     const modal = this.modalCtrl.create(SiteLocationPage,
-      {site: this.project.site, isSet: this.siteIsSet});
+      {latitude: this.project.latitude, longitude: this.project.longitude, isSet: this.locationSet});
     modal.present();
     modal.onDidDismiss(
       data => {
         if (data) {
-          this.project.site = data.site;
-          this.siteIsSet = true;
+          this.latitude = data.latitude;
+          this.longitude = data.longitude;
+          this.locationSet = true;
         }
       }
     );

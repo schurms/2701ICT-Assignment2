@@ -1,9 +1,7 @@
 /**
  * This data model defines the structure of the Project class
- * This class imports the Site data model as an object.
  *
  */
-import { Site } from './site.model';
 
 export class Project {
   constructor(
@@ -13,5 +11,6 @@ export class Project {
     public dueDate: Date,
     public priority: number,
     public done: boolean,
-    public site: Site) {}
+    public latitude: number,
+    public longitude: number) {}
 }

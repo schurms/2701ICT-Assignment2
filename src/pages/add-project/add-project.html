@@ -3,7 +3,7 @@
     <ion-title>Add Project</ion-title>
     <form #projectForm="ngForm" (ngSubmit)="onSubmit(projectForm)">
       <ion-buttons end>
-       <button ion-button type="submit" [disabled]="!projectForm.valid || !siteIsSet">Save</button>
+       <button ion-button type="submit" [disabled]="!projectForm.valid || !locationSet">Save</button>
       </ion-buttons>
     </form>
   </ion-navbar>
@@ -73,15 +73,15 @@
       </ion-col>
     </ion-list>
       <ion-grid>
-        <ion-row *ngIf="siteIsSet">
+        <ion-row *ngIf="locationSet">
           <ion-col>
             <agm-map
-              [latitude]="site.latitude"
-              [longitude]="site.longitude"
+              [latitude]="latitude"
+              [longitude]="longitude"
               [zoom]="16">
               <agm-marker
-                [latitude]="site.latitude"
-                [longitude]="site.longitude">
+                [latitude]="latitude"
+                [longitude]="longitude">
               </agm-marker>
             </agm-map>
           </ion-col>

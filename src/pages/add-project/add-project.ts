@@ -4,7 +4,6 @@ import { ModalController, NavController, ViewController } from 'ionic-angular';
 
 import { SiteLocationPage } from '../site-location/site-location';
 
-import { Site } from '../../models/site.model';
 import { ProjectService } from '../../services/project.service';
 
 @Component({
@@ -12,13 +11,13 @@ import { ProjectService } from '../../services/project.service';
   templateUrl: 'add-project.html'
 })
 export class AddProjectPage {
-  // Provide initial latitude/longitude values
-  site: Site = {
-    latitude: -27.5550897,
-    longitude: 153.0532585
-  };
 
-  siteIsSet = false;
+  // Provide initial latitude/longitude values
+  latitude = -27.5550897;
+  longitude = 153.0532585;
+
+  // Set location found to false as this is add
+  locationSet = false;
 
   constructor (private projectService: ProjectService,
                private navCtrl: NavController,
@@ -45,14 +44,14 @@ export class AddProjectPage {
       form.value.dueDate,
       form.value.priority,
       form.value.done,
-      this.site);
+      this.latitude,
+      this.longitude);
 
     form.reset();
 
-    this.site = {
-      latitude: -27.5550897,
-      longitude: 153.0532585
-    };
+    // this.latitude =  -27.5550897;
+    // this.longitude =  153.0532585;
+
 
     this.navCtrl.popToRoot();
   }
@@ -62,14 +61,15 @@ export class AddProjectPage {
    */
   onSelectSite() {
     const modal = this.modalCtrl.create(SiteLocationPage,
-      {site: this.site, isSet: this.siteIsSet});
+      {latitude: this.latitude, longitude: this.longitude, isSet: this.locationSet});
     modal.present();
     // if returning and a site was selected set data
     modal.onDidDismiss(
       data => {
         if (data) {
-          this.site = data.site;
-          this.siteIsSet = true;
+          this.latitude = data.latitude;
+          this.longitude = data.longitude;
+          this.locationSet = true;
         }
       }
     );

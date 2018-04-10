@@ -5,7 +5,7 @@
       <button ion-button type="submit" (click)="onCancel()">Cancel</button>
     </ion-buttons>
     <ion-buttons right>
-      <button ion-button type="submit" (click)="onConfirm()" [disabled]="!marker">Confirm</button>
+      <button ion-button type="submit" (click)="onConfirm()" [disabled]="!locationSet">Confirm</button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
@@ -15,14 +15,14 @@
     <ion-row>
       <ion-col>
         <agm-map
-          [latitude]="site.latitude"
-          [longitude]="site.longitude"
+          [latitude]="latitude"
+          [longitude]="longitude"
           [zoom]="16"
-          (mapClick)="onSetMarker($event)">
+          (mapClick)="onChoseLocation($event)">
           <agm-marker
-            [latitude]="marker.latitude"
-            [longitude]="marker.longitude"
-            *ngIf="marker"></agm-marker>
+            [latitude]="latitude"
+            [longitude]="longitude"
+          *ngIf="locationSet"></agm-marker>
         </agm-map>
       </ion-col>
     </ion-row>
