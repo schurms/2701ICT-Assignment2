@@ -25,13 +25,14 @@ export class MyApp implements OnInit {
       statusBar.styleDefault();
       splashScreen.hide();
     });
+    this.projectService.loadProjects();
   }
 
   /**
    * Load projects from local storage ready to process
    */
   ngOnInit() {
-    this.projectService.loadProjects();
+    // this.projectService.loadProjects();
   }
 
   /**

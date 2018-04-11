@@ -17,10 +17,10 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-list reorder="true" (ionItemReorder)="reorderItems($event)">
-    <ion-item-sliding *ngFor="let project of projects; let i = index">
-      <button ion-item (click)="onLoadProject(project, i)">
-        <h2>{{ project.title }}</h2>
+  <ion-list reorder="true" (ionItemReorder)="reorderItems($event)" no-lines>
+    <ion-item-sliding *ngFor="let project of projects; let i = index; let evenRow = even;">
+      <button ion-item [ngClass]="{evenClass : evenRow }" (click)="onLoadProject(project, i)">
+        <h3>{{ project.title }}</h3>
         <ion-note>{{ project.manager }}</ion-note>
         <ion-icon *ngIf="project.done" item-end name="checkmark"></ion-icon>
       </button>
