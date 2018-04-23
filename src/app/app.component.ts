@@ -1,10 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MenuController, NavController, Platform} from 'ionic-angular';
+import { MenuController, NavController, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { ProjectService } from '../services/project.service';
 import { WelcomePage } from '../pages/welcome/welcome';
+import { SettingsPage } from '../pages/settings/settings';
 
 @Component({
   templateUrl: 'app.html'
@@ -41,6 +42,10 @@ export class MyApp implements OnInit {
   onLogout() {
     this.menuCtrl.close();
     this.navCtrl.popToRoot();
-
   }
+
+  onSettings() {
+    this.navCtrl.push(SettingsPage);
+  }
+
 }
