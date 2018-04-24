@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import {Camera, CameraOptions} from '@ionic-native/camera';
+import { ImagePicker } from '@ionic-native/image-picker';
+import {GalleryPage} from '../gallery/gallery';
 
 
 /**
@@ -16,23 +17,23 @@ import {Camera, CameraOptions} from '@ionic-native/camera';
 })
 export class SettingsPage {
 
-  myphoto:any;
-
+  images: any = [];
   constructor(public navCtrl: NavController,
-              private camera: Camera) { }
+              public imagePicker: ImagePicker) { }
 
-  getImage() {
-    const options: CameraOptions = {
-      quality: 70,
-      destinationType: this.camera.DestinationType.DATA_URL,
-      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
-      saveToPhotoAlbum:false
+  getPictures() {
+    let options = {
+      maximumImagesCount: 8,
+      width: 500,
+      height: 500,
+      quality: 75
     }
 
-    this.camera.getPicture(options).then((imageData) => {
-      this.myphoto = 'data:image/jpeg;base64,' + imageData;
-    }, (err) => {
-
+    this.imagePicker.getPictures(options).then(
+      results => { console.log(results) ;
+      for (let i=0; i < results.length; i++) {
+        this.images.push(results[i]);
+      };
     });
   }
 

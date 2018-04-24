@@ -4,5 +4,8 @@
 </ion-header>
 
 <ion-content padding>
-  <button ion-button (click)="getImage()">Get Photo from Library</button>
+  <button ion-button (click)="getPictures()">Get Pictures</button>
+  <div *ngFor="let image of images">
+    <img src="{{image}}"/>
+  </div>
 </ion-content>
