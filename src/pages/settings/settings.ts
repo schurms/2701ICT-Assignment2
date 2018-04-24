@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ImagePicker } from '@ionic-native/image-picker';
-import {GalleryPage} from '../gallery/gallery';
-
 
 /**
  * Generated class for the SettingsPage page.
