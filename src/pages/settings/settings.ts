@@ -38,11 +38,8 @@ export class SettingsPage {
     this.imagePicker.getPictures(options).then(results => {
       for (var i = 0; i < results.length; i++) {
         this.path = normalizeURL(results[i]);
-        alert("Gallery Path: " + this.path);
       }
-    }, err => {
-      alert("Error " + err);
-    });
+    }, err => { });
   }
 
   takePictures() {
@@ -55,11 +52,7 @@ export class SettingsPage {
 
     this.camera.getPicture(options).then(url => {
       this.path = normalizeURL(url);
-      alert("Camera URL is : " + this.path);
-    }, err => {
-      alert("Error " + err);
-    });
-
+    }, err => { });
   }
 
 }
