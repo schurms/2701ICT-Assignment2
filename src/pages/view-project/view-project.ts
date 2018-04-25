@@ -1,3 +1,7 @@
+/**
+ * Page to view a project
+ */
+
 import { Component } from '@angular/core';
 import { ActionSheetController, AlertController, NavController, NavParams } from 'ionic-angular';
 

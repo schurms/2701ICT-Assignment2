@@ -1,3 +1,7 @@
+/**
+ * Page to display project metrics
+ */
+
 import { Component } from '@angular/core';
 
 import { ProjectService } from '../../services/project.service';

@@ -1,3 +1,7 @@
+/**
+ * This page is the default landing page. It displays the list of projects.
+ */
+
 import { Component } from '@angular/core';
 import { AlertController, NavController } from 'ionic-angular';
 

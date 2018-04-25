@@ -1,6 +1,10 @@
+/**
+ * Page to edit a project
+ */
+
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ModalController, NavController, NavParams, ViewController} from 'ionic-angular';
+import { ModalController, NavController, NavParams, ViewController } from 'ionic-angular';
 
 import { SiteLocationPage } from '../site-location/site-location';
 
@@ -12,9 +16,10 @@ import { ProjectService } from '../../services/project.service';
   templateUrl: 'edit-project.html'
 })
 export class EditProjectPage {
+
+  //Variables
   latitude: number;
   longitude: number;
-
   locationSet = true;
   project: Project;
   index: number;
@@ -33,7 +38,7 @@ export class EditProjectPage {
   }
 
   /**
-   * Set the cancel button on load
+   * On loading the Page change the back button to read "Cancel"
    */
   ionViewDidLoad() {
     this.viewCtrl.setBackButtonText('Cancel');
@@ -61,11 +66,11 @@ export class EditProjectPage {
   }
 
   /**
-   * Open the Select Site Page
+   * Function to load the Site Modal to allow selection of a site.
    */
   onSelectSite() {
     const modal = this.modalCtrl.create(SiteLocationPage,
-      {latitude: this.project.latitude, longitude: this.project.longitude, isSet: this.locationSet});
+      {latitude: this.project.latitude, longitude: this.project.longitude, locationSet: this.locationSet});
     modal.present();
     modal.onDidDismiss(
       data => {

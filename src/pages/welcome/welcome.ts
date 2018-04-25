@@ -1,3 +1,9 @@
+/**
+ * This page is the default page displayed on loading the application.
+ * This page is also displayed on logout of the application.
+ * The user must press the login button to continue.
+ */
+
 import { Component } from '@angular/core';
 import { MenuController, NavController, NavParams } from 'ionic-angular';
 

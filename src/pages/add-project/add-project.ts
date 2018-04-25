@@ -1,3 +1,7 @@
+/**
+ * Page to add a project
+ */
+
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ModalController, NavController, ViewController } from 'ionic-angular';
@@ -12,7 +16,7 @@ import { ProjectService } from '../../services/project.service';
 })
 export class AddProjectPage {
 
-  // Provide initial latitude/longitude values
+  // Provide initial latitude/longitude values - Griffith University
   latitude = -27.5550897;
   longitude = 153.0532585;
 
@@ -26,7 +30,7 @@ export class AddProjectPage {
   }
 
   /**
-   * Set the cancel button on load
+   * On loading the Page change the back button to read "Cancel"
    */
   ionViewDidLoad() {
     this.viewCtrl.setBackButtonText('Cancel');
@@ -49,19 +53,16 @@ export class AddProjectPage {
 
     form.reset();
 
-    // this.latitude =  -27.5550897;
-    // this.longitude =  153.0532585;
-
-
     this.navCtrl.popToRoot();
   }
 
   /**
-   * Open the Select Site Page
+   * Function to load the Site Modal to allow selection of a site.
+   * Note: Selected site is not saved in the prototype.
    */
   onSelectSite() {
     const modal = this.modalCtrl.create(SiteLocationPage,
-      {latitude: this.latitude, longitude: this.longitude, isSet: this.locationSet});
+      {latitude: this.latitude, longitude: this.longitude, locationSet: this.locationSet});
     modal.present();
     // if returning and a site was selected set data
     modal.onDidDismiss(
@@ -74,4 +75,5 @@ export class AddProjectPage {
       }
     );
   }
+
 }

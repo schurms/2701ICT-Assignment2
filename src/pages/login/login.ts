@@ -1,3 +1,8 @@
+/**
+ * This page is the logon page.  All logon authentication occurs here.
+ * This page validates fields.
+ */
+
 import { Component } from '@angular/core';
 import { LoadingController, MenuController, NavController } from 'ionic-angular';
 import { NgForm } from '@angular/forms';

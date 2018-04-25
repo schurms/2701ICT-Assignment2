@@ -1,3 +1,7 @@
+/**
+ * Purpose of this directive is to auto-adjust the textarea size as data is input
+ */
+
 import {ElementRef, HostListener, Directive, OnInit} from '@angular/core';
 
 @Directive({
@@ -13,12 +17,16 @@ export class Autosize implements OnInit {
   constructor(public element:ElementRef) {
   }
 
-  // on calling class set the timeout for the textarea adjustment to zero
+  /**
+   * On calling class set the timeout for the textarea adjustment to zero
+   */
   ngOnInit():void {
     setTimeout(() => this.adjust(), 0);
   }
 
-  // Set the textarea styling
+  /**
+   * Set the textarea to auto size as text is added
+   */
   adjust():void {
     let textArea = this.element.nativeElement.getElementsByTagName('textarea')[0];
     textArea.style.overflow = 'hidden';
@@ -27,4 +35,4 @@ export class Autosize implements OnInit {
   }
 }
 
-// https://competenepal.com/elastic-text-area-component-in-ionic-framework/
+//  source: https://competenepal.com/elastic-text-area-component-in-ionic-framework/

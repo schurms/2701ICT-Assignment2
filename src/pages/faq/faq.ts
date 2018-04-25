@@ -1,3 +1,7 @@
+/**
+ * Page displays the list of available FAQs.
+ */
+
 import { Component } from '@angular/core';
 import { ModalController } from 'ionic-angular';
 
@@ -16,6 +20,23 @@ export class FaqPage {
 
   constructor(private modalCtrl: ModalController) {
 
+    // Load initial FAQ data
+    this.loadData()
+
+  }
+
+  /**
+   * Function for viewing a FAQ. Navigate user to the View FAQ Page.
+   */
+  onLoadFaq(faq: Faq, index: number) {
+    const modal = this.modalCtrl.create(ViewFaqPage, {faq: faq, index: index});
+    modal.present();
+  }
+
+  /**
+   * Function to load FAQ data.
+   */
+  loadData() {
     this.faqs = [
       {
         name: 'Add a Project',
@@ -36,13 +57,6 @@ export class FaqPage {
         ' Project Page you can update information and save the detail. All fields except the end date are' +
         ' mandatory.'}
     ];
-
-  }
-
-  // Load the Faq Modal detail page when item selected
-  onLoadFaq(faq: Faq, index: number) {
-    const modal = this.modalCtrl.create(ViewFaqPage, {faq: faq, index: index});
-    modal.present();
   }
 
 }

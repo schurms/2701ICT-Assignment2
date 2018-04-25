@@ -1,3 +1,7 @@
+/**
+ * Page to select a project site
+ */
+
 import { Component } from '@angular/core';
 import { NavParams, ViewController } from 'ionic-angular';
 
@@ -15,7 +19,7 @@ export class SiteLocationPage {
               private viewCtrl: ViewController) {
     this.latitude = this.navParams.get('latitude');
     this.longitude = this.navParams.get('longitude');
-    this.locationSet = this.navParams.get('isSet');
+    this.locationSet = this.navParams.get('locationSet');
 
   }
 

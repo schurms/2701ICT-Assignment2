@@ -1,3 +1,7 @@
+/**
+ * Page to display selected FAQ
+ */
+
 import { Component } from '@angular/core';
 import { NavParams, ViewController } from 'ionic-angular';
 
