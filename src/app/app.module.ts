@@ -18,13 +18,14 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { ImagePicker } from '@ionic-native/image-picker';
+import { Camera } from '@ionic-native/camera';
 
 import { Autosize } from '../directives/autosize/autosize';
 import { ProjectService } from '../services/project.service';
 import { IonicStorageModule } from '@ionic/storage';
 import { ChartsModule } from 'ng2-charts';
 import { AgmCoreModule } from '@agm/core';
-import { ImagePicker } from '@ionic-native/image-picker';
 
 @NgModule({
   declarations: [
@@ -73,6 +74,7 @@ import { ImagePicker } from '@ionic-native/image-picker';
     SplashScreen,
     ProjectService,
     ImagePicker,
+    Camera,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

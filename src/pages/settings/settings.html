@@ -4,8 +4,13 @@
 </ion-header>
 
 <ion-content padding>
-  <button ion-button (click)="getPictures()">Get Pictures</button>
-  <div *ngFor="let image of images">
-    <img src="{{image}}"/>
-  </div>
+  <p>File Location : {{ path }}</p>
+
+  <button ion-button (click)="choosePictures()">Gallery</button>
+  <button ion-button (click)="takePictures()">Camera</button>
+
+<!--  <img src='assets/imgs/no-image.png'/> -->
+  <img [src]=path />
+
+  <button ion-button full>Crop</button>
 </ion-content>

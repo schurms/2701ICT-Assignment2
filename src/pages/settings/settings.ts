@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, normalizeURL } from 'ionic-angular';
 import { ImagePicker } from '@ionic-native/image-picker';
+import { Camera, CameraOptions } from '@ionic-native/camera';
 
 /**
  * Generated class for the SettingsPage page.
@@ -15,32 +16,49 @@ import { ImagePicker } from '@ionic-native/image-picker';
 })
 export class SettingsPage {
 
-  images: any = [];
+  path: string;
   constructor(public navCtrl: NavController,
-              public imagePicker: ImagePicker) { }
+              public imagePicker: ImagePicker,
+              public camera: Camera) {
 
-  getPictures() {
+    this.path = 'assets/imgs/no-image.png';
+  }
+
+  choosePictures() {
     let options = {
-      maximumImagesCount: 8,
+      title: 'Select Picture',
+      message: 'Select at Least 1 Picture',
+      maximumImagesCount: 1,
       width: 500,
       height: 500,
-      quality: 75
-    }
+      quality: 75,
+      outType: 0 // 0 = PATH, 1 = BASE64
+    };
 
-    this.imagePicker.getPictures(options).then(
-      results => { console.log(results) ;
-      for (let i=0; i < results.length; i++) {
-        this.images.push(results[i]);
-      };
+    this.imagePicker.getPictures(options).then(results => {
+      for (var i = 0; i < results.length; i++) {
+        this.path = normalizeURL(results[i]);
+        alert("Gallery Path: " + this.path);
+      }
+    }, err => {
+      alert("Error " + err);
     });
   }
 
+  takePictures() {
+    let options : CameraOptions = {
+      quality: 100,
+      destinationType: this.camera.DestinationType.FILE_URI,
+      encodingType: this.camera.EncodingType.PNG,
+      mediaType: this.camera.MediaType.PICTURE
+    };
 
-
-  /**
-   * Dismiss the page and return to the FAQs Page
-   */
-  closeSettings() {
+    this.camera.getPicture(options).then(url => {
+      this.path = normalizeURL(url);
+      alert("Camera URL is : " + this.path);
+    }, err => {
+      alert("Error " + err);
+    });
 
   }
 
