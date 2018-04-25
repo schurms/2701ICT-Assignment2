@@ -13,11 +13,12 @@
         <button ion-button color="secondary" (click)="choosePicture()">From Gallery</button>
       </ion-col>
       <ion-col col-6>
-        <button ion-button color="default"(click)="takePicture()">From Camera</button>
+        <button ion-button color="default" (click)="takePicture()">From Camera</button>
       </ion-col>
     </ion-row>
   </ion-grid>
 
   <img [src]=path />
-
+  <br>
+  <button ion-button color="danger" full (click)="removePicture()">Remove Picture</button>
 </ion-content>

@@ -75,4 +75,12 @@ export class SettingsPage {
     });
   }
 
+  /**
+   * Remove picture and place default picture
+   */
+  removePicture() {
+    this.path = 'assets/imgs/no-image.png';
+    this.storage.set('myImage', this.path);
+  }
+
 }
