@@ -45,8 +45,7 @@ export class SettingsPage {
     this.imagePicker.getPictures(options).then(results => {
       for (var i = 0; i < results.length; i++) {
         // Need to normalizeURL as files can not be in the format file:///
-        // this.path = normalizeURL(results[i]);
-        this.path = (results[i]);
+        this.path = normalizeURL(results[i]);
         // Save image to storage
         this.storage.set('myImage', this.path);
         }
