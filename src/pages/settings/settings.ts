@@ -67,8 +67,7 @@ export class SettingsPage {
 
     this.camera.getPicture(options).then(url => {
       // Need to normalizeURL as files can not be in the format file:///
-      // this.path = normalizeURL(url);
-      this.path = (url);
+      this.path = normalizeURL(url);
       // Save image to storage
       this.storage.set('myImage', this.path);
       }, err => {

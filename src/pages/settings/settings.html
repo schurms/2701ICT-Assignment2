@@ -9,16 +9,18 @@
 <ion-content padding>
   <ion-grid>
     <ion-row>
-      <ion-col>
-        <button ion-button color="secondary" full (click)="choosePicture()">From Gallery</button>
+      <ion-col col-6>
+        <button ion-button color="secondary" (click)="choosePicture()">From Gallery</button>
+      </ion-col>
+      <ion-col col-6>
+        <button ion-button color="primary" (click)="takePicture()">From Camera</button>
       </ion-col>
     </ion-row>
   </ion-grid>
   <img [src]=path />
-  <br>
   <ion-grid>
     <ion-row>
-      <button ion-button color="danger" full (click)="removePicture()">Remove Picture</button>
+      <button ion-button color="danger" block (click)="removePicture()">Remove Picture</button>
     </ion-row>
   </ion-grid>
 </ion-content>
