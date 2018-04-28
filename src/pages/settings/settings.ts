@@ -38,7 +38,7 @@ export class SettingsPage {
       maximumImagesCount: 1,
       width: 500,
       height: 500,
-      quality: 75,
+      quality: 100,
       outType: 0 // 0 = PATH, 1 = BASE64
       };
 
@@ -61,8 +61,12 @@ export class SettingsPage {
     let options: CameraOptions = {
       quality: 100,
       destinationType: this.camera.DestinationType.FILE_URI,
+      targetWidth: 275,
+      targetHeight: 275,
       encodingType: this.camera.EncodingType.PNG,
-      mediaType: this.camera.MediaType.PICTURE
+      mediaType: this.camera.MediaType.PICTURE,
+      cameraDirection: 1,
+      saveToPhotoAlbum: true,
       };
 
     this.camera.getPicture(options).then(url => {
