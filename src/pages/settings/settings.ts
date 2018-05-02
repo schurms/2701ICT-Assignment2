@@ -16,6 +16,7 @@ import { Storage } from '@ionic/storage';
 export class SettingsPage {
 
   path: string;
+  pathSaved: string;
 
   constructor(public navCtrl: NavController,
               public imagePicker: ImagePicker,
@@ -24,7 +25,8 @@ export class SettingsPage {
 
     // Get stored image file - will be default if no value stored
     this.storage.get('myImage').then((val) => {
-      this.path = val;
+      this.pathSaved = val;
+      this.path = normalizeURL(this.pathSaved);
     });
   }
 
@@ -45,9 +47,10 @@ export class SettingsPage {
     this.imagePicker.getPictures(options).then(results => {
       for (var i = 0; i < results.length; i++) {
         // Need to normalizeURL as files can not be in the format file:///
+        this.pathSaved = (results[i]);
         this.path = normalizeURL(results[i]);
         // Save image to storage
-        this.storage.set('myImage', this.path);
+        this.storage.set('myImage', this.pathSaved);
         }
       }, err => {
       alert("Error " + err);
@@ -71,9 +74,10 @@ export class SettingsPage {
 
     this.camera.getPicture(options).then(url => {
       // Need to normalizeURL as files can not be in the format file:///
+      this.pathSaved = (url);
       this.path = normalizeURL(url);
       // Save image to storage
-      this.storage.set('myImage', this.path);
+      this.storage.set('myImage', this.pathSaved);
       }, err => {
       alert("Error " + err);
     });
