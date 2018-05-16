@@ -74,7 +74,7 @@ export class ProjectService {
       } else {
         doneProjects++;
       }
-    })
+    });
     return [notDoneProjects, doneProjects];
   }
 

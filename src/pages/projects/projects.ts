@@ -25,7 +25,6 @@ export class ProjectsPage {
   constructor(public navCtrl: NavController,
               private projectService: ProjectService,
               private alertCtrl: AlertController) {
-
   }
 
   /**

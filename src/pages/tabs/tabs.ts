@@ -1,3 +1,7 @@
+/**
+ * Define setup for the tabs at bottom of page
+ */
+
 import { Component } from '@angular/core';
 
 import { ProjectsPage } from '../projects/projects';
