@@ -1,6 +1,6 @@
 {
-  "name": "project1",
-  "app_id": "cef2ff47",
+  "name": "trakka",
+  "app_id": "schurmann2701ict",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}
